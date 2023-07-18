@@ -13,12 +13,12 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     @IBOutlet weak var collectionview: UICollectionView!
     
     let data: [(image: UIImage, title: String, description: String)] = [
-        (UIImage(systemName: "house")!, "Home", "This is the home description."),
-        (UIImage(systemName: "heart")!, "Favorites", "This is the favorites description."),
-        (UIImage(systemName: "star")!, "Top Rated", "This is the top rated description."),
-        (UIImage(systemName: "magnifyingglass")!, "Search", "This is the search description."),
-        (UIImage(systemName: "person")!, "Profile", "This is the profile description."),
-        (UIImage(systemName: "gear")!, "Settings", "This is the settings description.")
+        (UIImage(systemName: "video")!, "Video to GIF", "You can convert your videos to gif"),
+        (UIImage(systemName: "photo")!, "Photo to GIF", "You can create gifs by selecting your multiple photos"),
+        (UIImage(systemName: "star")!, "GIF Editor", "You can edit or create your GIFs"),
+        (UIImage(systemName: "play.circle")!, "GIF Moments", "You can create GIF from your moments"),
+        (UIImage(systemName: "rectangle.compress.vertical")!, "Compress GIF", "You can compress your GIF"),
+        (UIImage(systemName: "infinity.circle")!, "Loop GIF", "You can convert your capture video into Loop GIFs")
     ]
     
     override func viewDidLoad() {
@@ -52,8 +52,21 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          let width = (collectionView.bounds.width - 30) / 2
-         return CGSize(width: width, height: 200)
+        let screenHeight = UIScreen.main.bounds.height
+            
+            // Define the reference screen height and corresponding height value
+            let referenceScreenHeight: CGFloat = 926
+            let referenceHeight: CGFloat = 215
+            
+            // Calculate the proportional height based on the current screen height
+            let height = (screenHeight / referenceScreenHeight) * referenceHeight
+            print(width)
+            return CGSize(width: width, height: height)
+         //return CGSize(width: width, height: 215)
      }
+ 
+
 }

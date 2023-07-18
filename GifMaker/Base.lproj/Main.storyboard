@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tp5-Ma-N7s">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="createVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="View1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-qr-4OI">
-                                <rect key="frame" x="20" y="108" width="374" height="720"/>
+                                <rect key="frame" x="10" y="111" width="408" height="732"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4WR-ZJ-VzA">
                                     <size key="itemSize" width="182" height="246"/>
@@ -98,10 +98,10 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
                         <constraints>
-                            <constraint firstItem="Dpd-qr-4OI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.803571" id="EUl-0z-Oio"/>
-                            <constraint firstItem="Dpd-qr-4OI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IeV-SE-sfq"/>
+                            <constraint firstItem="Dpd-qr-4OI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HOO-QM-F2v"/>
+                            <constraint firstItem="Dpd-qr-4OI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="IeV-SE-sfq"/>
                             <constraint firstItem="Dpd-qr-4OI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="aB8-mk-1A1"/>
-                            <constraint firstItem="Dpd-qr-4OI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.903382" id="rFS-b1-kII"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dpd-qr-4OI" secondAttribute="trailing" constant="10" id="lao-Ol-8h1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create GIF" id="GBK-2w-s8c">
@@ -118,14 +118,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.81159420289862" y="353.57142857142856"/>
+            <point key="canvasLocation" x="934" y="354"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Id-f6-EQH">
             <objects>
                 <viewController id="j6C-Hq-8bj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kdh-pu-3jC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="cc2-6x-Zov"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,9 +139,9 @@
         <!--GIF-->
         <scene sceneID="BXN-te-ekS">
             <objects>
-                <viewController id="a3R-gT-5kz" customClass="GifVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a3R-gT-5kz" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCr-Cw-3MZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FnQ-ff-clu"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -157,7 +157,7 @@
             <objects>
                 <viewController id="YNd-ac-imK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0K-wV-fcz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="SGG-B5-kYq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -173,7 +173,7 @@
             <objects>
                 <viewController id="n1t-DJ-Czh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zg7-EE-y2o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="a1y-kf-HCD"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,6 +194,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1372549236" green="0.1372549236" blue="0.1372549236" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Zxw-nV-lUj" kind="relationship" relationship="viewControllers" id="Oxs-7x-Uvw"/>
@@ -216,7 +221,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2P-uk-p5W">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1372549236" green="0.1372549236" blue="0.1372549236" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">

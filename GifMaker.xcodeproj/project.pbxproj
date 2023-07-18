@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E82170E72A666E17009A95E7 /* createVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82170E62A666E17009A95E7 /* createVC.swift */; };
 		E82170E92A666FD4009A95E7 /* createCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */; };
-		E82170ED2A66A94C009A95E7 /* GifVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82170EC2A66A94C009A95E7 /* GifVC.swift */; };
 		E8AD8B492A65777900C7BC31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AD8B482A65777900C7BC31 /* AppDelegate.swift */; };
 		E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */; };
 		E8AD8B502A65777900C7BC31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B4E2A65777900C7BC31 /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		E82170E62A666E17009A95E7 /* createVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createVC.swift; sourceTree = "<group>"; };
 		E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createCollectionViewCell.swift; sourceTree = "<group>"; };
-		E82170EC2A66A94C009A95E7 /* GifVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifVC.swift; sourceTree = "<group>"; };
 		E8AD8B452A65777900C7BC31 /* GifMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AD8B482A65777900C7BC31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 				E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */,
 				E82170E62A666E17009A95E7 /* createVC.swift */,
 				E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */,
-				E82170EC2A66A94C009A95E7 /* GifVC.swift */,
 			);
 			path = GifMaker;
 			sourceTree = "<group>";
@@ -148,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82170E92A666FD4009A95E7 /* createCollectionViewCell.swift in Sources */,
-				E82170ED2A66A94C009A95E7 /* GifVC.swift in Sources */,
 				E8AD8B492A65777900C7BC31 /* AppDelegate.swift in Sources */,
 				E82170E72A666E17009A95E7 /* createVC.swift in Sources */,
 				E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */,
