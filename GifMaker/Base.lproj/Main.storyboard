@@ -114,11 +114,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionview" destination="Dpd-qr-4OI" id="e0v-6o-stQ"/>
+                        <segue destination="oo6-cQ-9QM" kind="show" identifier="showPhotoToGifEditVC" id="WPD-z0-Qn4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="354"/>
+        </scene>
+        <!--Photo To Gif EditVC-->
+        <scene sceneID="nzW-SV-xYl">
+            <objects>
+                <viewController id="oo6-cQ-9QM" customClass="photoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aEX-q7-xCA">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lBq-Za-fcB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dj7-lU-fM5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpd-Xf-eog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="1302"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Id-f6-EQH">

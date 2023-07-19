@@ -1,17 +1,12 @@
-//
-//  createVC.swift
-//  GifMaker
-//
-//  Created by Tipu on 18/7/23.
-//
-
 import UIKit
-//import SwiftyGif
-import Photos
 import PhotosUI
 
-class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate,UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {
-    
+// Define the protocol
+protocol CreateVCDelegate: AnyObject {
+    func didSelectImages(_ images: [UIImage])
+}
+
+class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionview: UICollectionView!
     
@@ -24,19 +19,22 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         (UIImage(systemName: "infinity.circle")!, "Loop GIF", "You can convert your capture video into Loop GIFs")
     ]
     
+    weak var delegate: CreateVCDelegate?
+    var selectedImages: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         collectionview.dataSource = self
         collectionview.delegate = self
-        
+                
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionview.collectionViewLayout = flowLayout
     }
-    
+
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -52,31 +50,30 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Get the selected item from the data array
-        //let selectedItem = data[indexPath.item]
-        
-        // Perform actions based on the selected item
         switch indexPath.item {
-        case 0: // "Video to GIF"
-            // Perform the action for "Video to GIF"
+        case 0:
+            // "Video to GIF" selected
             print("Video to GIF selected")
-        case 1: // "Photo to GIF"
+        case 1:
             // "Photo to GIF" selected
             openPhotoLibrary()
-            print("Photo to GIF selected")
-        case 2: // "GIF Editor"
-            // Perform the action for "GIF Editor"
+            // Perform the segue to the photoToGifEditVC here
+            performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+        case 2:
+            // "GIF Editor" selected
             print("GIF Editor selected")
-        case 3: // "GIF Moments"
-            // Perform the action for "GIF Moments"
+        case 3:
+            // "GIF Moments" selected
             print("GIF Moments selected")
-        case 4: // "Compress GIF"
-            // Perform the action for "Compress GIF"
+        case 4:
+            // "Compress GIF" selected
             print("Compress GIF selected")
-        case 5: // "Loop GIF"
-            // Perform the action for "Loop GIF"
+        case 5:
+            // "Loop GIF" selected
             print("Loop GIF selected")
+           
         default:
             break
         }
@@ -85,46 +82,53 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 30) / 2
         let screenHeight = UIScreen.main.bounds.height
-        
+            
         // Define the reference screen height and corresponding height value
         let referenceScreenHeight: CGFloat = 926
         let referenceHeight: CGFloat = 215
-        
+            
         // Calculate the proportional height based on the current screen height
         let height = (screenHeight / referenceScreenHeight) * referenceHeight
-        print(width)
         return CGSize(width: width, height: height)
-        //return CGSize(width: width, height: 215)
-    }
+     }
+    
     func openPhotoLibrary() {
-           var configuration = PHPickerConfiguration()
-           configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
 
-           let picker = PHPickerViewController(configuration: configuration)
-           picker.delegate = self
-           present(picker, animated: true, completion: nil)
-       }
-
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-          picker.dismiss(animated: true, completion: nil)
-
-          var selectedImages: [UIImage] = []
-          
-          for result in results {
-              if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
-                  result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                      if let image = image as? UIImage {
-                          selectedImages.append(image)
-                      }
-                  }
-              }
-          }
-          
-          // Handle the selected images in the 'selectedImages' array
-          print("Selected images: \(selectedImages)")
-      }
-    func pickerDidCancel(_ picker: PHPickerViewController) {
-          picker.dismiss(animated: true, completion: nil)
-      }
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhotoToGifEditVC" {
+            if let destinationVC = segue.destination as? photoToGifEditVC {
+                destinationVC.selectedImages = selectedImages // Pass the selected images to the photoToGifEditVC
+            }
+        }
+    }
 }
 
+extension createVC: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+
+        for result in results {
+            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
+                    if let image = image as? UIImage {
+                        self?.selectedImages.append(image)
+                    }
+                }
+            }
+        }
+        
+        // Handle the selected images
+        delegate?.didSelectImages(selectedImages)
+    }
+    
+    func pickerDidCancel(_ picker: PHPickerViewController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
