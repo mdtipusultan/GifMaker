@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import SwiftyGif
+//import SwiftyGif
 import Photos
+import PhotosUI
 
-
-class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UINavigationControllerDelegate,UIImagePickerControllerDelegate, PHPickerViewControllerDelegate {
     
     
     @IBOutlet weak var collectionview: UICollectionView!
@@ -26,17 +26,17 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionview.dataSource = self
         collectionview.delegate = self
-                
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionview.collectionViewLayout = flowLayout
     }
-
+    
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -55,15 +55,15 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Get the selected item from the data array
         //let selectedItem = data[indexPath.item]
-
+        
         // Perform actions based on the selected item
         switch indexPath.item {
         case 0: // "Video to GIF"
             // Perform the action for "Video to GIF"
             print("Video to GIF selected")
         case 1: // "Photo to GIF"
-            // Perform the action for "Photo to GIF"
-            //openPhotoLibrary()
+            // "Photo to GIF" selected
+            openPhotoLibrary()
             print("Photo to GIF selected")
         case 2: // "GIF Editor"
             // Perform the action for "GIF Editor"
@@ -83,19 +83,48 @@ class createVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         let width = (collectionView.bounds.width - 30) / 2
+        let width = (collectionView.bounds.width - 30) / 2
         let screenHeight = UIScreen.main.bounds.height
-            
-            // Define the reference screen height and corresponding height value
-            let referenceScreenHeight: CGFloat = 926
-            let referenceHeight: CGFloat = 215
-            
-            // Calculate the proportional height based on the current screen height
-            let height = (screenHeight / referenceScreenHeight) * referenceHeight
-            print(width)
-            return CGSize(width: width, height: height)
-         //return CGSize(width: width, height: 215)
-     }
-    
+        
+        // Define the reference screen height and corresponding height value
+        let referenceScreenHeight: CGFloat = 926
+        let referenceHeight: CGFloat = 215
+        
+        // Calculate the proportional height based on the current screen height
+        let height = (screenHeight / referenceScreenHeight) * referenceHeight
+        print(width)
+        return CGSize(width: width, height: height)
+        //return CGSize(width: width, height: 215)
+    }
+    func openPhotoLibrary() {
+           var configuration = PHPickerConfiguration()
+           configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
 
+           let picker = PHPickerViewController(configuration: configuration)
+           picker.delegate = self
+           present(picker, animated: true, completion: nil)
+       }
+
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+          picker.dismiss(animated: true, completion: nil)
+
+          var selectedImages: [UIImage] = []
+          
+          for result in results {
+              if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                  result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                      if let image = image as? UIImage {
+                          selectedImages.append(image)
+                      }
+                  }
+              }
+          }
+          
+          // Handle the selected images in the 'selectedImages' array
+          print("Selected images: \(selectedImages)")
+      }
+    func pickerDidCancel(_ picker: PHPickerViewController) {
+          picker.dismiss(animated: true, completion: nil)
+      }
 }
+
