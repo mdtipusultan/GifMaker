@@ -114,28 +114,64 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionview" destination="Dpd-qr-4OI" id="e0v-6o-stQ"/>
-                        <segue destination="oo6-cQ-9QM" kind="show" identifier="showPhotoToGifEditVC" id="WPD-z0-Qn4"/>
+                        <segue destination="64N-DI-Etr" kind="presentation" identifier="showPhotoToGifEditVC" modalPresentationStyle="fullScreen" id="WPD-z0-Qn4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="354"/>
         </scene>
-        <!--Photo To Gif EditVC-->
+        <!--Edit GIF-->
         <scene sceneID="nzW-SV-xYl">
             <objects>
                 <viewController id="oo6-cQ-9QM" customClass="photoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEX-q7-xCA">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jwb-q0-FoE">
+                                <rect key="frame" x="0.0" y="744" width="428" height="182"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7lH-WN-akU">
+                                    <size key="itemSize" width="87" height="42"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ebg-tN-i2f">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9D5-bG-neb">
+                                            <rect key="frame" x="0.0" y="0.0" width="87" height="42"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="87" height="42"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lBq-Za-fcB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lBq-Za-fcB" firstAttribute="bottom" secondItem="Jwb-q0-FoE" secondAttribute="bottom" id="SHu-En-fh9"/>
+                            <constraint firstItem="Jwb-q0-FoE" firstAttribute="top" secondItem="lBq-Za-fcB" secondAttribute="top" constant="700" id="Tiu-I2-BuV"/>
+                            <constraint firstItem="lBq-Za-fcB" firstAttribute="trailing" secondItem="Jwb-q0-FoE" secondAttribute="trailing" id="VdJ-WX-EMO"/>
+                            <constraint firstItem="Jwb-q0-FoE" firstAttribute="leading" secondItem="lBq-Za-fcB" secondAttribute="leading" id="kbj-De-VFy"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dj7-lU-fM5"/>
+                    <navigationItem key="navigationItem" title="Edit GIF" id="dj7-lU-fM5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SQq-uT-AMy">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CRK-Ns-6rl">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpd-Xf-eog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="1302"/>
+            <point key="canvasLocation" x="1900.9345794392523" y="1301.0799136069115"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Id-f6-EQH">
@@ -240,7 +276,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2P-uk-p5W">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.1372549236" green="0.1372549236" blue="0.1372549236" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemOrangeColor"/>
                         </textAttributes>
@@ -253,6 +289,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp4-my-ccv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="187" y="354"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YGW-oz-hqD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="64N-DI-Etr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="28F-Fx-M9I"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwe-JJ-mNv">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Ec-vg-j94">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="oo6-cQ-9QM" kind="relationship" relationship="rootViewController" id="sdj-E7-Qs4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idr-Fh-whB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000.9345794392523" y="1301.7278617710583"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemOrangeColor"/>

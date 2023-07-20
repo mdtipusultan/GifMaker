@@ -131,7 +131,9 @@ extension createVC: PHPickerViewControllerDelegate {
             // User canceled the selection
             print("User canceled the selection.")
         } else {
-            performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+            dismiss(animated: true) {
+                           self.performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+                       }
             // User tapped on the "Add" button and selected one or more items
             var selectedImages: [UIImage] = []
 
