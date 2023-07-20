@@ -60,7 +60,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             // "Photo to GIF" selected
             openPhotoLibrary()
             // Perform the segue to the photoToGifEditVC here
-            performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+            //performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
         case 2:
             // "GIF Editor" selected
             print("GIF Editor selected")
@@ -113,22 +113,52 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 extension createVC: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
-
+        /*
         for result in results {
             if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
                 result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
                     if let image = image as? UIImage {
                         self?.selectedImages.append(image)
+                        
                     }
+                    
                 }
             }
         }
-        
-        // Handle the selected images
-        delegate?.didSelectImages(selectedImages)
+        */
+   
+        if results.isEmpty {
+            // User canceled the selection
+            print("User canceled the selection.")
+        } else {
+            performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+            // User tapped on the "Add" button and selected one or more items
+            var selectedImages: [UIImage] = []
+
+            let group = DispatchGroup()
+            
+            for result in results {
+                if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    group.enter()
+                    result.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                        if let image = image as? UIImage {
+                            selectedImages.append(image)
+                        }
+                        group.leave()
+                    }
+                }
+            }
+
+            // Notify when all images have been loaded
+            group.notify(queue: .main) { [weak self] in
+                // Handle the selected images
+                self?.delegate?.didSelectImages(selectedImages)
+            }
+        }
     }
     
     func pickerDidCancel(_ picker: PHPickerViewController) {
         picker.dismiss(animated: true, completion: nil)
+        print("User canceled the selection.")
     }
 }
