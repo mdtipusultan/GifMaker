@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "97BDACD9-DA6A-42E9-83B8-9DB048B02105"
+            uuid = "9D793309-0E35-4B5B-A243-C8E954CEF41B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GifMaker/createVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "pickerDidCancel(_:)"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "picker(_:didFinishPicking:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9D793309-0E35-4B5B-A243-C8E954CEF41B - 5d63f7d76cb50c90"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GifMaker.createVC.showPhotoToGifEditVC(with: Swift.Array&lt;__C.UIImage&gt;) -&gt; ()"
+                  moduleName = "GifMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/createVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  uuid = "9D793309-0E35-4B5B-A243-C8E954CEF41B - f350507493b21063"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable (Swift.Optional&lt;__C.NSItemProviderReading&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GifMaker.createVC.picker(_: __C.PHPickerViewController, didFinishPicking: Swift.Array&lt;PhotosUI.PHPickerResult&gt;) -&gt; ()"
+                  moduleName = "GifMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/createVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "347">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

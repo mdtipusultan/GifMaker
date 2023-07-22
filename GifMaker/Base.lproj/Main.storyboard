@@ -228,8 +228,20 @@
                     <view key="view" contentMode="scaleToFill" id="Zg7-EE-y2o">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Will Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-Dm-Uc2">
+                                <rect key="frame" x="59.333333333333343" y="446.33333333333331" width="309.66666666666663" height="33.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="a1y-kf-HCD"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c6Y-Dm-Uc2" firstAttribute="centerY" secondItem="Zg7-EE-y2o" secondAttribute="centerY" id="QCz-Xc-hsC"/>
+                            <constraint firstItem="c6Y-Dm-Uc2" firstAttribute="centerX" secondItem="Zg7-EE-y2o" secondAttribute="centerX" id="Vwp-aS-cJS"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Keyboard" image="keyboard" catalog="system" id="0so-uz-shg"/>
                 </viewController>
