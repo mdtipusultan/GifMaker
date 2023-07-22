@@ -163,9 +163,15 @@
                     <navigationItem key="navigationItem" title="Edit GIF" id="dj7-lU-fM5">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SQq-uT-AMy">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancleButton:" destination="oo6-cQ-9QM" id="c7Z-NY-WLZ"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="CRK-Ns-6rl">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <action selector="saveButton:" destination="oo6-cQ-9QM" id="jbF-pv-XOj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -173,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="1900.9345794392523" y="1301.0799136069115"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera-->
         <scene sceneID="1Id-f6-EQH">
             <objects>
                 <viewController id="j6C-Hq-8bj" sceneMemberID="viewController">
@@ -183,7 +189,7 @@
                         <viewLayoutGuide key="safeArea" id="cc2-6x-Zov"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="camera" catalog="system" id="KuC-91-2Ek"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" catalog="system" id="KuC-91-2Ek"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-wX-zMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,8 +235,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Will Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-Dm-Uc2">
-                                <rect key="frame" x="59.333333333333343" y="446.33333333333331" width="309.66666666666663" height="33.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Will Be Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-Dm-Uc2">
+                                <rect key="frame" x="40.333333333333343" y="446.33333333333331" width="347.66666666666663" height="33.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>

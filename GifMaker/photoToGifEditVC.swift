@@ -14,4 +14,15 @@ class photoToGifEditVC: UIViewController {
         
         print("Selected images in photoToGifEditVC: \(selectedImages)")
     }
+    
+    @IBAction func cancleButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        
+    }
+    
 }
