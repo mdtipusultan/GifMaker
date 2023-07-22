@@ -22,7 +22,5 @@ class photoToGifEditVC: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         
-        
     }
-    
 }

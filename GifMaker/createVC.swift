@@ -100,10 +100,12 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
-    
+    //i dont know but its not reaching that point
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhotoToGifEditVC" {
             if let destinationVC = segue.destination as? photoToGifEditVC {
+                
+                
                 destinationVC.selectedImages = selectedImages // Pass the selected images to the photoToGifEditVC
             }
         }
@@ -113,27 +115,12 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 extension createVC: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
-        /*
-        for result in results {
-            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
-                result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (image, error) in
-                    if let image = image as? UIImage {
-                        self?.selectedImages.append(image)
-                        
-                    }
-                    
-                }
-            }
-        }
-        */
    
         if results.isEmpty {
             // User canceled the selection
             print("User canceled the selection.")
         } else {
-            dismiss(animated: true) {
-                           self.performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
-                       }
+           
             // User tapped on the "Add" button and selected one or more items
             var selectedImages: [UIImage] = []
 
@@ -154,7 +141,11 @@ extension createVC: PHPickerViewControllerDelegate {
             // Notify when all images have been loaded
             group.notify(queue: .main) { [weak self] in
                 // Handle the selected images
+                print(selectedImages)
                 self?.delegate?.didSelectImages(selectedImages)
+                    //self?.performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+                self?.showPhotoToGifEditVC(with: selectedImages)
+                           
             }
         }
     }
@@ -163,4 +154,15 @@ extension createVC: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
         print("User canceled the selection.")
     }
+    func showPhotoToGifEditVC(with images: [UIImage]) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
+                destinationVC.selectedImages = images
+                //let popup : PopupVC = self.storyboard?.instantiateViewControllerWithIdentifier("PopupVC") as! PopupVC
+                let navigationController = UINavigationController(rootViewController: destinationVC)
+                navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                self.present(navigationController, animated: true, completion: nil)
+                //present(destinationVC, animated: true)
+            }
+        }
 }
