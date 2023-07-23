@@ -158,11 +158,9 @@ extension createVC: PHPickerViewControllerDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
                 destinationVC.selectedImages = images
-                //let popup : PopupVC = self.storyboard?.instantiateViewControllerWithIdentifier("PopupVC") as! PopupVC
                 let navigationController = UINavigationController(rootViewController: destinationVC)
                 navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
                 self.present(navigationController, animated: true, completion: nil)
-                //present(destinationVC, animated: true)
             }
         }
 }
