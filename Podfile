@@ -7,6 +7,7 @@ target 'GifMaker' do
 
   # Pods for GifMaker
 pod 'SwiftyGif'
+pod 'UIImageGIF'
 
 
 end
