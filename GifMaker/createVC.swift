@@ -24,17 +24,17 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionview.dataSource = self
         collectionview.delegate = self
-                
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionview.collectionViewLayout = flowLayout
     }
-
+    
     //MARK: COLLECTIONVIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
@@ -73,7 +73,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         case 5:
             // "Loop GIF" selected
             print("Loop GIF selected")
-           
+            
         default:
             break
         }
@@ -82,20 +82,20 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 30) / 2
         let screenHeight = UIScreen.main.bounds.height
-            
+        
         // Define the reference screen height and corresponding height value
         let referenceScreenHeight: CGFloat = 926
         let referenceHeight: CGFloat = 215
-            
+        
         // Calculate the proportional height based on the current screen height
         let height = (screenHeight / referenceScreenHeight) * referenceHeight
         return CGSize(width: width, height: height)
-     }
+    }
     
     func openPhotoLibrary() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
-
+        
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true, completion: nil)
@@ -115,15 +115,15 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 extension createVC: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true, completion: nil)
-   
+        
         if results.isEmpty {
             // User canceled the selection
             print("User canceled the selection.")
         } else {
-           
+            
             // User tapped on the "Add" button and selected one or more items
             var selectedImages: [UIImage] = []
-
+            
             let group = DispatchGroup()
             
             for result in results {
@@ -137,15 +137,14 @@ extension createVC: PHPickerViewControllerDelegate {
                     }
                 }
             }
-
+            
             // Notify when all images have been loaded
             group.notify(queue: .main) { [weak self] in
                 // Handle the selected images
                 print(selectedImages)
                 self?.delegate?.didSelectImages(selectedImages)
-                    //self?.performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+                //self?.performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
                 self?.showPhotoToGifEditVC(with: selectedImages)
-                           
             }
         }
     }
@@ -155,12 +154,12 @@ extension createVC: PHPickerViewControllerDelegate {
         print("User canceled the selection.")
     }
     func showPhotoToGifEditVC(with images: [UIImage]) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
-                destinationVC.selectedImages = images
-                let navigationController = UINavigationController(rootViewController: destinationVC)
-                navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-                self.present(navigationController, animated: true, completion: nil)
-            }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
+            destinationVC.selectedImages = images
+            let navigationController = UINavigationController(rootViewController: destinationVC)
+            navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(navigationController, animated: true, completion: nil)
         }
+    }
 }

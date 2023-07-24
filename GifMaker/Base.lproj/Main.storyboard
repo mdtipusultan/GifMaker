@@ -107,6 +107,9 @@
                     <navigationItem key="navigationItem" title="Create GIF" id="GBK-2w-s8c">
                         <barButtonItem key="leftBarButtonItem" image="gearshape" catalog="system" id="rTL-8a-8kj">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="na1-HT-Wls" kind="show" id="0ui-M1-G5M"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="Yz7-99-amU">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
@@ -124,7 +127,7 @@
         <!--Edit GIF-->
         <scene sceneID="nzW-SV-xYl">
             <objects>
-                <viewController storyboardIdentifier="photoToGifEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oo6-cQ-9QM" customClass="photoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoToGifEditVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oo6-cQ-9QM" customClass="photoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEX-q7-xCA">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpd-Xf-eog" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900.9345794392523" y="1301.0799136069115"/>
+            <point key="canvasLocation" x="3470" y="1301"/>
         </scene>
         <!--Camera-->
         <scene sceneID="1Id-f6-EQH">
@@ -318,6 +321,22 @@
             </objects>
             <point key="canvasLocation" x="187" y="354"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="8aH-cy-aOs">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="na1-HT-Wls" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAl-kU-8rD">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ldm-UA-H4G"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="UmE-gN-zm2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDM-lj-RhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="1195"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YGW-oz-hqD">
             <objects>
@@ -338,7 +357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idr-Fh-whB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1000.9345794392523" y="1301.7278617710583"/>
+            <point key="canvasLocation" x="2581" y="1300"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemOrangeColor"/>
