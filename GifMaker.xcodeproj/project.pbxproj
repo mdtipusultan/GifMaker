@@ -17,6 +17,7 @@
 		E8AD8B532A65777900C7BC31 /* GifMaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */; };
 		E8AD8B552A65777B00C7BC31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B542A65777B00C7BC31 /* Assets.xcassets */; };
 		E8AD8B582A65777B00C7BC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */; };
+		E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B700432A6F15AA00B51F6B /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E8AD8B542A65777B00C7BC31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8AD8B572A65777B00C7BC31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8AD8B592A65777B00C7BC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B700432A6F15AA00B51F6B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				E82170E62A666E17009A95E7 /* createVC.swift */,
 				E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */,
 				E84D8EBE2A686BE2000F9AB2 /* photoToGifEditVC.swift */,
+				E8B700432A6F15AA00B51F6B /* SettingsVC.swift */,
 			);
 			path = GifMaker;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				E84D8EBF2A686BE2000F9AB2 /* photoToGifEditVC.swift in Sources */,
 				E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */,
 				E8AD8B532A65777900C7BC31 /* GifMaker.xcdatamodeld in Sources */,
+				E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

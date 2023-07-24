@@ -324,14 +324,40 @@
         <!--Settings-->
         <scene sceneID="8aH-cy-aOs">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="na1-HT-Wls" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="na1-HT-Wls" customClass="SettingsVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAl-kU-8rD">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z1W-AK-GEE">
+                                <rect key="frame" x="20" y="91" width="388" height="801"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="fWo-pq-5V2">
+                                        <rect key="frame" x="0.0" y="50" width="388" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWo-pq-5V2" id="jB2-du-wDD">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.41176470590000003" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ldm-UA-H4G"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ldm-UA-H4G" firstAttribute="bottom" secondItem="Z1W-AK-GEE" secondAttribute="bottom" id="4EP-SP-8gm"/>
+                            <constraint firstAttribute="trailing" secondItem="Z1W-AK-GEE" secondAttribute="trailing" constant="20" id="E56-tv-Z0X"/>
+                            <constraint firstItem="Z1W-AK-GEE" firstAttribute="top" secondItem="Ldm-UA-H4G" secondAttribute="top" id="UfT-SP-4jf"/>
+                            <constraint firstItem="Z1W-AK-GEE" firstAttribute="leading" secondItem="xAl-kU-8rD" secondAttribute="leading" constant="20" id="kLL-cF-LMP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="UmE-gN-zm2"/>
+                    <connections>
+                        <outlet property="tableview" destination="Z1W-AK-GEE" id="aLh-Zy-GxR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDM-lj-RhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
