@@ -8,10 +8,9 @@
 import UIKit
 
 class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
-    
+
     @IBOutlet weak var tableview: UITableView!
-    let sectionTitles = ["Settings", "Purchase", "Others"]
+    let sectionTitles = ["SETTINGS", "PURCHASE", "OTHERS"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +30,11 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             // Return the number of rows for each section
             switch section {
             case 0: // Settings section
-                return 3 // For example, there are 3 rows in the "Settings" section
+                return 4 // For example, there are 3 rows in the "Settings" section
             case 1: // Purchased section
                 return 2 // For example, there are 2 rows in the "Purchased" section
             case 2: // Others section
-                return 4 // For example, there are 4 rows in the "Others" section
+                return 7 // For example, there are 4 rows in the "Others" section
             default:
                 return 0 // Return 0 for any other sections
             }
@@ -54,6 +53,8 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     cell.textLabel?.text = "Setting 2"
                 case 2:
                     cell.textLabel?.text = "Setting 3"
+                case 3:
+                    cell.textLabel?.text = "Setting 4"
                 default:
                     break
                 }
@@ -76,13 +77,19 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                     cell.textLabel?.text = "Other Item 3"
                 case 3:
                     cell.textLabel?.text = "Other Item 4"
+                case 4:
+                    cell.textLabel?.text = "Other Item 5"
+                case 5:
+                    cell.textLabel?.text = "Other Item 6"
+                case 6:
+                    cell.textLabel?.text = "Other Item 7"
                 default:
                     break
                 }
             default:
                 break
             }
-            
+            cell.textLabel?.textColor = .lightGray
             return cell
         }
         
@@ -90,4 +97,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             return sectionTitles[section]
         }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
 }
