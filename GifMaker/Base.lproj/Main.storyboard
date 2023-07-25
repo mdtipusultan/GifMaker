@@ -333,7 +333,7 @@
                                 <rect key="frame" x="20" y="91" width="388" height="801"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="fWo-pq-5V2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="fWo-pq-5V2" customClass="settingsTableViewCell" customModule="GifMaker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="388" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWo-pq-5V2" id="jB2-du-wDD">
@@ -341,18 +341,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1C-eU-SQb">
-                                                    <rect key="frame" x="365.66666666666669" y="18" width="12.333333333333314" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="353" y="16.333333333333329" width="15" height="27.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k1C-eU-SQb" firstAttribute="centerY" secondItem="jB2-du-wDD" secondAttribute="centerY" id="4Qs-dZ-kL4"/>
-                                                <constraint firstAttribute="trailing" secondItem="k1C-eU-SQb" secondAttribute="trailing" constant="10" id="Xf9-vQ-gzp"/>
+                                                <constraint firstAttribute="trailing" secondItem="k1C-eU-SQb" secondAttribute="trailing" constant="20" id="Xf9-vQ-gzp"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.23953104019999999" green="0.25079542399999999" blue="0.26274704929999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="rightMark" destination="k1C-eU-SQb" id="Oxb-o8-Xdj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -373,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDM-lj-RhO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="1195"/>
+            <point key="canvasLocation" x="243.92523364485979" y="1194.8164146868251"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YGW-oz-hqD">
