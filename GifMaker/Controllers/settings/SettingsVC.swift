@@ -36,6 +36,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         default:
             return 0 // Return 0 for any other sections
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,6 +114,20 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         default:
             break
+        }
+        // Set rounded corners for all sections
+        if indexPath.row == 0 {
+            // First row in section, add top and bottom rounded corners
+            cell.layer.cornerRadius = 10
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            // Last row in section, add bottom rounded corners
+            cell.layer.cornerRadius = 10
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        } else {
+            // Middle rows in section, reset corner radius and corners mask
+            cell.layer.cornerRadius = 0
+            cell.layer.maskedCorners = []
         }
         cell.textLabel?.textColor = .lightGray
         cell.selectionStyle = .none
@@ -193,7 +208,6 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         default:
             break
         }
-        
     }
     
     // Optional: Provide section headers
@@ -216,6 +230,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
     //MARK: SWITCH CONTROLLING
     @objc func switchValueChanged(_ sender: UISwitch) {
         if let cell = sender.superview as? UITableViewCell,
@@ -237,7 +252,6 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 default:
                     break
                 }
-                // ... (other cases)
             default:
                 break
             }
