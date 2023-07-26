@@ -52,6 +52,19 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             case 2:
                 cell.textLabel?.text = "View Gallery"
                 cell.rightMark.isHidden = true
+                // Create and add the segmented control programmatically
+                          let segmentedControl = UISegmentedControl(items: ["Newest First", "Oldest First"])
+                          segmentedControl.selectedSegmentIndex = 0 // Set the initial selected segment index
+                          segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+                          cell.accessoryView = segmentedControl // Set the segmented control as the accessory view
+                // Customize the appearance of the segmented control
+                segmentedControl.tintColor = .systemOrange // Set the segment's tint color
+                segmentedControl.selectedSegmentTintColor = .systemOrange // Set the segment's selection color
+                           segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+                           segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+
+                         //  cell.accessoryView = segmentedControl
+                         
             case 3:
                 cell.textLabel?.text = "Auto Save"
                 cell.rightMark.isHidden = true
@@ -225,5 +238,21 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             }
         }
     }
-    
+    //MARK: SEGMENT CONTROLLING
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        // Get the selected segment index from the segmented control
+        let selectedIndex = sender.selectedSegmentIndex
+
+        // Perform actions based on the selected segment index
+        switch selectedIndex {
+        case 0:
+            print("Option 1 selected")
+            // Perform the action for Option 1
+        case 1:
+            print("Option 2 selected")
+            // Perform the action for Option 2
+        default:
+            break
+        }
+    }
 }
