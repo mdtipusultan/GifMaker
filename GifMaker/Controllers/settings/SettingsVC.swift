@@ -53,25 +53,28 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 cell.textLabel?.text = "View Gallery"
                 cell.rightMark.isHidden = true
                 // Create and add the segmented control programmatically
-                          let segmentedControl = UISegmentedControl(items: ["Newest First", "Oldest First"])
-                          segmentedControl.selectedSegmentIndex = 0 // Set the initial selected segment index
-                          segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
-                          cell.accessoryView = segmentedControl // Set the segmented control as the accessory view
+                let segmentedControl = UISegmentedControl(items: ["Newest First", "Oldest First"])
+                segmentedControl.selectedSegmentIndex = 0 // Set the initial selected segment index
+                segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+                cell.accessoryView = segmentedControl // Set the segmented control as the accessory view
                 // Customize the appearance of the segmented control
                 segmentedControl.tintColor = .systemOrange // Set the segment's tint color
                 segmentedControl.selectedSegmentTintColor = .systemOrange // Set the segment's selection color
-                           segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-                           segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-
-                         //  cell.accessoryView = segmentedControl
-                         
+                segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+                segmentedControl.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+                
+                // Check the previous selected segment and update the selection
+                if let previousSelectedSegment = UserDefaults.standard.value(forKey: "selectedSegment") as? Int {
+                    segmentedControl.selectedSegmentIndex = previousSelectedSegment
+                }
+                
             case 3:
                 cell.textLabel?.text = "Auto Save"
                 cell.rightMark.isHidden = true
                 // Create and add the switch programmatically
                 let switchView = UISwitch(frame: .zero)
                 //switchView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-                switchView.isOn = false // Set the initial state of the switch
+                switchView.isOn = UserDefaults.standard.bool(forKey: "autoSaveEnabled") // Set the initial state of the switch based on the stored value
                 switchView.onTintColor = .systemOrange// Set the color of the switch when it is in the "ON" state
                 switchView.thumbTintColor = .white
                 switchView.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
@@ -222,6 +225,8 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 switch indexPath.row {
                 case 3:
                     // "Auto Save" switch value changed
+                    UserDefaults.standard.set(sender.isOn, forKey: "autoSaveEnabled")
+                    // "Auto Save" switch value changed
                     if sender.isOn {
                         // Auto Save is enabled
                         print("Auto Save is enabled")
@@ -242,7 +247,10 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         // Get the selected segment index from the segmented control
         let selectedIndex = sender.selectedSegmentIndex
-
+        
+        // Store the selected segment index in UserDefaults
+        UserDefaults.standard.setValue(selectedIndex, forKey: "selectedSegment")
+        
         // Perform actions based on the selected segment index
         switch selectedIndex {
         case 0:
