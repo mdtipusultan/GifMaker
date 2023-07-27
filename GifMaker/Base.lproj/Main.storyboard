@@ -192,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="3470" y="1301"/>
         </scene>
-        <!--Camera-->
+        <!--View Controller-->
         <scene sceneID="1Id-f6-EQH">
             <objects>
                 <viewController id="j6C-Hq-8bj" sceneMemberID="viewController">
@@ -202,7 +202,7 @@
                         <viewLayoutGuide key="safeArea" id="cc2-6x-Zov"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" image="camera" catalog="system" id="KuC-91-2Ek"/>
+                    <tabBarItem key="tabBarItem" title="" image="camera" catalog="system" id="KuC-91-2Ek"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-wX-zMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,10 +268,10 @@
             </objects>
             <point key="canvasLocation" x="4735" y="354"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="D3S-YC-wx9">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Tp5-Ma-N7s" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Tp5-Ma-N7s" customClass="CustomTabBarController" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wc5-E4-pwa">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

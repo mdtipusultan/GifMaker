@@ -17,6 +17,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         tableview.dataSource = self
         tableview.delegate = self
+        
     }
     
     // MARK: - Table View Data Source
@@ -223,6 +224,7 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         return headerView
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30

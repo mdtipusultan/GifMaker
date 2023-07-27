@@ -19,6 +19,7 @@
 		E8AD8B552A65777B00C7BC31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B542A65777B00C7BC31 /* Assets.xcassets */; };
 		E8AD8B582A65777B00C7BC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */; };
 		E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B700432A6F15AA00B51F6B /* SettingsVC.swift */; };
+		E8C4ABA92A7249E4004AE929 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4ABA82A7249E4004AE929 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E8AD8B572A65777B00C7BC31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8AD8B592A65777B00C7BC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8B700432A6F15AA00B51F6B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		E8C4ABA82A7249E4004AE929 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 		E82ED5162A6FF25400AFECE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8C4ABAA2A7278A2004AE929 /* customTab */,
 				E82ED5192A6FF2C100AFECE6 /* photoEdit */,
 				E82ED5182A6FF2A300AFECE6 /* settings */,
 				E82ED5172A6FF27800AFECE6 /* CreateVC */,
@@ -136,6 +139,14 @@
 				E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */,
 			);
 			path = GifMaker;
+			sourceTree = "<group>";
+		};
+		E8C4ABAA2A7278A2004AE929 /* customTab */ = {
+			isa = PBXGroup;
+			children = (
+				E8C4ABA82A7249E4004AE929 /* CustomTabBarController.swift */,
+			);
+			path = customTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +272,7 @@
 				E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */,
 				E8AD8B532A65777900C7BC31 /* GifMaker.xcdatamodeld in Sources */,
 				E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */,
+				E8C4ABA92A7249E4004AE929 /* CustomTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
