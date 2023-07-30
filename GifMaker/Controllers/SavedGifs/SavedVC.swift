@@ -32,14 +32,33 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         collectionview.delegate = self
         collectionview.dataSource = self
         
+      
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        collectionview.reloadData()
         // Add the message label as a subview to the collection view's background view
              collectionview.backgroundView = messageLabel
              
              // Check if the savedGifs array is empty, and show/hide the message label accordingly
              messageLabel.isHidden = !savedGifs.isEmpty
     }
-    override func viewWillAppear(_ animated: Bool) {
-        collectionview.reloadData()
+    
+    func loadImages(from gifData: Data) -> [UIImage]? {
+        guard let source = CGImageSourceCreateWithData(gifData as CFData, nil) else {
+            return nil
+        }
+        
+        var images: [UIImage] = []
+        let count = CGImageSourceGetCount(source)
+        
+        for i in 0..<count {
+            if let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) {
+                let image = UIImage(cgImage: cgImage)
+                images.append(image)
+            }
+        }
+        
+        return images
     }
     //MARK: collectionview
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,9 +67,19 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SavedGifsCollectionViewCell
         
-        cell.backgroundColor = .green
+        // Load the GIF data from the savedGifs array
+            let gifData = savedGifs[indexPath.item]
+        // Convert the GIF data to images
+        if let images = loadImages(from: gifData) {
+              // Display the first image in the GIF as the cell's content
+              cell.savedGifView.image = images.first
+          } else {
+              // If there was an error loading the images, display a placeholder or default image
+              cell.savedGifView.image = UIImage(named: "placeholderImage")
+          }
+
         return cell
     }
     
@@ -60,7 +89,7 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         
         // Define the reference screen height and corresponding height value
         let referenceScreenHeight: CGFloat = 926
-        let referenceHeight: CGFloat = 100
+        let referenceHeight: CGFloat = 128
         
         // Calculate the proportional height based on the current screen height
         let height = (screenHeight / referenceScreenHeight) * referenceHeight

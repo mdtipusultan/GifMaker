@@ -7,65 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4E6B1C38-19B5-4939-AD84-D706611B8AF0"
+            uuid = "ED9ACC6E-DADF-4FCB-959A-996E86684E0C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GifMaker/Controllers/SavedVC.swift"
+            filePath = "GifMaker/Controllers/SavedGifs/SavedVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4E6B1C38-19B5-4939-AD84-D706611B8AF0 - ac96888b3b3a3f"
+                  uuid = "ED9ACC6E-DADF-4FCB-959A-996E86684E0C - 5b2a85011efca45e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GifMaker.SavedVC.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
+                  symbolName = "GifMaker.SavedVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
                   moduleName = "GifMaker"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/Controllers/SavedVC.swift"
+                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/Controllers/SavedGifs/SavedVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "56">
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1451">
                </Location>
                <Location
-                  uuid = "4E6B1C38-19B5-4939-AD84-D706611B8AF0 - b103a2eca746aa73"
+                  uuid = "ED9ACC6E-DADF-4FCB-959A-996E86684E0C - 5b2a85011efca45e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "GifMaker.SavedVC.viewWillAppear(Swift.Bool) -&gt; ()"
+                  symbolName = "GifMaker.SavedVC.collectionView(_: __C.UICollectionView, cellForItemAt: Foundation.IndexPath) -&gt; __C.UICollectionViewCell"
                   moduleName = "GifMaker"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/Controllers/SavedVC.swift"
+                  urlString = "file:///Users/tipuasdf/Desktop/practices/gif_maker/GifMaker/Controllers/SavedGifs/SavedVC.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "58">
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1210">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5613851D-4D0C-46CF-8D53-178CD60D658E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GifMaker/Controllers/SavedVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
