@@ -206,9 +206,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J0m-wX-zMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="354"/>
+            <point key="canvasLocation" x="3719.1588785046729" y="353.77969762419008"/>
         </scene>
-        <!--GIF-->
+        <!--GIF Library-->
         <scene sceneID="BXN-te-ekS">
             <objects>
                 <viewController id="a3R-gT-5kz" sceneMemberID="viewController">
@@ -218,11 +218,13 @@
                         <viewLayoutGuide key="safeArea" id="FnQ-ff-clu"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="GIF" image="figure.walk.circle" catalog="system" id="a0l-2D-O2U"/>
+                    <navigationItem key="navigationItem" title="GIF Library" id="MlB-ow-KkV">
+                        <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="D3A-gC-59F"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpl-Rr-JdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="354"/>
+            <point key="canvasLocation" x="2772.897196261682" y="353.77969762419008"/>
         </scene>
         <!--Saved GIF's-->
         <scene sceneID="7fw-Pf-rad">
@@ -289,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3c-je-bHp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4589.7196261682238" y="353.77969762419008"/>
+            <point key="canvasLocation" x="5489.7196261682238" y="353.77969762419008"/>
         </scene>
         <!--Keyboard-->
         <scene sceneID="qK0-5I-7eX">
@@ -317,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wS6-1z-YNx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5634.1121495327097" y="353.77969762419008"/>
+            <point key="canvasLocation" x="6534.1121495327097" y="353.77969762419008"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="D3S-YC-wx9">
@@ -337,7 +339,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zxw-nV-lUj" kind="relationship" relationship="viewControllers" id="Oxs-7x-Uvw"/>
-                        <segue destination="a3R-gT-5kz" kind="relationship" relationship="viewControllers" id="Qlp-Dq-G0K"/>
+                        <segue destination="gXd-UV-f1L" kind="relationship" relationship="viewControllers" id="Qlp-Dq-G0K"/>
                         <segue destination="j6C-Hq-8bj" kind="relationship" relationship="viewControllers" id="fxH-JD-V0K"/>
                         <segue destination="IQd-sn-Sgi" kind="relationship" relationship="viewControllers" id="8qC-0w-Lv3"/>
                         <segue destination="n1t-DJ-Czh" kind="relationship" relationship="viewControllers" id="DVd-AL-1fe"/>
@@ -472,7 +474,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HiW-tR-vh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689.7196261682243" y="353.77969762419008"/>
+            <point key="canvasLocation" x="4589.7196261682238" y="353.77969762419008"/>
+        </scene>
+        <!--GIF-->
+        <scene sceneID="aas-eh-ZKD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gXd-UV-f1L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="GIF" image="figure.walk.circle" catalog="system" id="a0l-2D-O2U"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="luP-l7-1iQ">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemOrangeColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a3R-gT-5kz" kind="relationship" relationship="rootViewController" id="bqk-dN-jGg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3al-Wr-hyG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872.8971962616822" y="353.77969762419008"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemOrangeColor"/>
