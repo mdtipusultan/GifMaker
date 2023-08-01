@@ -215,11 +215,33 @@
                     <view key="view" contentMode="scaleToFill" id="WCr-Cw-3MZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-Hj-X77">
+                                <rect key="frame" x="0.0" y="111" width="428" height="56"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="a3R-gT-5kz" id="xIs-qd-5dO"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FnQ-ff-clu"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nX2-Hj-X77" firstAttribute="leading" secondItem="FnQ-ff-clu" secondAttribute="leading" id="Dhr-yt-YZ1"/>
+                            <constraint firstItem="FnQ-ff-clu" firstAttribute="trailing" secondItem="nX2-Hj-X77" secondAttribute="trailing" id="Kb2-o5-3iY"/>
+                            <constraint firstItem="nX2-Hj-X77" firstAttribute="top" secondItem="FnQ-ff-clu" secondAttribute="top" constant="20" id="Kyc-oB-Y2q"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GIF Library" id="MlB-ow-KkV">
-                        <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="D3A-gC-59F"/>
+                        <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="D3A-gC-59F">
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpl-Rr-JdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
