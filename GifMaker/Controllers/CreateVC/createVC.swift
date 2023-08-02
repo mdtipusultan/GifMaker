@@ -10,6 +10,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     @IBOutlet weak var collectionview: UICollectionView!
     
+    
     let data: [(image: UIImage, title: String, description: String)] = [
         (UIImage(systemName: "video")!, "Video to GIF", "You can convert your videos to gif"),
         (UIImage(systemName: "photo")!, "Photo to GIF", "You can create gifs by selecting your multiple photos"),
@@ -33,6 +34,14 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionview.collectionViewLayout = flowLayout
+    }
+    @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
+          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+        //destinationVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
+          self.navigationController?.pushViewController(destinationVC, animated: true)
+        
+        
     }
     
     //MARK: COLLECTIONVIEW

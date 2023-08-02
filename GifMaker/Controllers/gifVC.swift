@@ -36,6 +36,14 @@ class gifVC: UIViewController {
           // Add the collection view as a subview to the view controller's view
           view.addSubview(gifCollectionView)
       }
+    
+    @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
+          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+          self.navigationController?.pushViewController(destinationVC, animated: true)
+        //destinationVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        
+    }
     private func fetchRandomGIFs() {
         let apiKey = "HDwy5Yc1FMnzX83F2zJdyYRQm8oI7y3k"
         let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(apiKey)")!

@@ -114,7 +114,7 @@
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="Yz7-99-amU">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <segue destination="xZF-Nb-Yvg" kind="show" id="DEv-Qf-wTU"/>
+                                <action selector="purchaseBUttonTapped:" destination="BYZ-38-t0r" id="ijp-Lx-YuB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -211,16 +211,6 @@
             </objects>
             <point key="canvasLocation" x="3719.1588785046729" y="353.77969762419008"/>
         </scene>
-        <!--Purchase-->
-        <scene sceneID="45M-k5-gBG">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Purchase" id="xZF-Nb-Yvg" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="e8c-A9-hdr"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UTS-a2-Odb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3309" y="825"/>
-        </scene>
         <!--GIF Library-->
         <scene sceneID="BXN-te-ekS">
             <objects>
@@ -255,7 +245,7 @@
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="D3A-gC-59F">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <segue destination="xZF-Nb-Yvg" kind="show" id="RvI-Hv-I6n"/>
+                                <action selector="purchaseBUttonTapped:" destination="a3R-gT-5kz" id="4YD-Nx-hRO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -325,7 +315,7 @@
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="F52-td-iBv">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <segue destination="xZF-Nb-Yvg" kind="show" id="Tv4-jQ-1Yh"/>
+                                <action selector="purchaseBUttonTapped:" destination="YNd-ac-imK" id="sVA-NY-e2g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -529,7 +519,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="luP-l7-1iQ">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemOrangeColor"/>
                         </textAttributes>
@@ -544,9 +534,6 @@
             <point key="canvasLocation" x="1872.8971962616822" y="353.77969762419008"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="DEv-Qf-wTU"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>

@@ -42,7 +42,13 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
              // Check if the savedGifs array is empty, and show/hide the message label accordingly
              messageLabel.isHidden = !savedGifs.isEmpty
     }
-    
+    @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
+          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+          self.navigationController?.pushViewController(destinationVC, animated: true)
+        //destinationVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        
+    }
     func loadImages(from gifData: Data) -> [UIImage]? {
         guard let source = CGImageSourceCreateWithData(gifData as CFData, nil) else {
             return nil
