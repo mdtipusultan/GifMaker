@@ -113,6 +113,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="Yz7-99-amU">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="xZF-Nb-Yvg" kind="show" id="DEv-Qf-wTU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -208,10 +211,20 @@
             </objects>
             <point key="canvasLocation" x="3719.1588785046729" y="353.77969762419008"/>
         </scene>
+        <!--Purchase-->
+        <scene sceneID="45M-k5-gBG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Purchase" id="xZF-Nb-Yvg" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="e8c-A9-hdr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTS-a2-Odb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309" y="825"/>
+        </scene>
         <!--GIF Library-->
         <scene sceneID="BXN-te-ekS">
             <objects>
-                <viewController id="a3R-gT-5kz" sceneMemberID="viewController">
+                <viewController id="a3R-gT-5kz" customClass="gifVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCr-Cw-3MZ">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,8 +254,14 @@
                     <navigationItem key="navigationItem" title="GIF Library" id="MlB-ow-KkV">
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="D3A-gC-59F">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="xZF-Nb-Yvg" kind="show" id="RvI-Hv-I6n"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="gifSearchBar" destination="nX2-Hj-X77" id="MXj-dh-M5S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wpl-Rr-JdG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,6 +324,9 @@
                     <navigationItem key="navigationItem" title="Saved GIF's" id="Zpb-oR-y2H">
                         <barButtonItem key="rightBarButtonItem" image="crown" catalog="system" id="F52-td-iBv">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <connections>
+                                <segue destination="xZF-Nb-Yvg" kind="show" id="Tv4-jQ-1Yh"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -522,6 +544,9 @@
             <point key="canvasLocation" x="1872.8971962616822" y="353.77969762419008"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DEv-Qf-wTU"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemOrangeColor"/>
     <resources>
         <image name="camera" catalog="system" width="128" height="93"/>

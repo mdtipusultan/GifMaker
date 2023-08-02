@@ -6,8 +6,7 @@ target 'GifMaker' do
   use_frameworks!
 
   # Pods for GifMaker
-pod 'SwiftyGif'
 pod 'UIImageGIF'
-
+pod 'Alamofire'
 
 end
