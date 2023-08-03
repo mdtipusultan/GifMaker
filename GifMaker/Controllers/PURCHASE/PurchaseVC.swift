@@ -7,13 +7,19 @@
 
 import UIKit
 
-class PurchaseVC: UIViewController {
+class PurchaseVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
+    
+    @IBOutlet weak var collectionview: UICollectionView!
+    
+    @IBOutlet weak var gifMakerProLable: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        //navigationController?.navigationBar.backgroundColor = UIColor.green
+        collectionview.dataSource = self
+        collectionview.delegate = self
+        
+        gifMakerProLable.layer.cornerRadius = 10
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,5 +40,26 @@ class PurchaseVC: UIViewController {
         navigationController?.popViewController(animated: true)
         //_ = navigationController?.popToRootViewController(animated: true)
     }
+    //MARK: collectionview
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! purchaseCollectionViewCell
+        switch indexPath.row {
+         case 0:
+             cell.imagesOfMoving.image = UIImage(named: "emoticon") // Set your image name here
+         case 1:
+             cell.imagesOfMoving.image = UIImage(named: "devil") // Set your image name here
+         case 2:
+             cell.imagesOfMoving.image = UIImage(named: "cool") // Set your image name here
+         case 3:
+             cell.imagesOfMoving.image = UIImage(named: "angry") // Set your image name here
+         default:
+             cell.imagesOfMoving.image = nil // Set a default image or nil if needed
+         }
+        return cell
+    }
+
 }

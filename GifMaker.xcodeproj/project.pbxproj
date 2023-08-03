@@ -22,6 +22,7 @@
 		E8AD8B582A65777B00C7BC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */; };
 		E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B700432A6F15AA00B51F6B /* SettingsVC.swift */; };
 		E8C4ABA92A7249E4004AE929 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C4ABA82A7249E4004AE929 /* CustomTabBarController.swift */; };
+		E8C9AE942A7BB3CA00EB8AD9 /* purchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C9AE932A7BB3CA00EB8AD9 /* purchaseCollectionViewCell.swift */; };
 		E8DE64282A78FABC0032A742 /* gifVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DE64272A78FABC0032A742 /* gifVC.swift */; };
 		E8DE642A2A7A692E0032A742 /* Purchase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DE64292A7A692E0032A742 /* Purchase.storyboard */; };
 		E8DE642C2A7A69D20032A742 /* PurchaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DE642B2A7A69D20032A742 /* PurchaseVC.swift */; };
@@ -45,6 +46,7 @@
 		E8AD8B592A65777B00C7BC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8B700432A6F15AA00B51F6B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		E8C4ABA82A7249E4004AE929 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		E8C9AE932A7BB3CA00EB8AD9 /* purchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = purchaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8DE64272A78FABC0032A742 /* gifVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifVC.swift; sourceTree = "<group>"; };
 		E8DE64292A7A692E0032A742 /* Purchase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Purchase.storyboard; sourceTree = "<group>"; };
 		E8DE642B2A7A69D20032A742 /* PurchaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseVC.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				E8DE642B2A7A69D20032A742 /* PurchaseVC.swift */,
+				E8C9AE932A7BB3CA00EB8AD9 /* purchaseCollectionViewCell.swift */,
 			);
 			path = PURCHASE;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */,
 				E8AD8B532A65777900C7BC31 /* GifMaker.xcdatamodeld in Sources */,
 				E8B700442A6F15AA00B51F6B /* SettingsVC.swift in Sources */,
+				E8C9AE942A7BB3CA00EB8AD9 /* purchaseCollectionViewCell.swift in Sources */,
 				E8C4ABA92A7249E4004AE929 /* CustomTabBarController.swift in Sources */,
 				E83A82652A76A8E1007D4E92 /* Helper.swift in Sources */,
 			);
