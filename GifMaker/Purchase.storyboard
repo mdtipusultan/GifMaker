@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,47 +54,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFB-q8-1h8" userLabel="movingView">
                                 <rect key="frame" x="0.0" y="220" width="393" height="120"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jOs-Ye-jxT">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Wg-VU-vEO">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="CB8-sH-Ac7" customClass="purchaseCollectionViewCell" customModule="GifMaker" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-4" width="128" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EhX-62-e5n">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cool" translatesAutoresizingMaskIntoConstraints="NO" id="j7B-L0-rw4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="170.66666666666666"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="j7B-L0-rw4" secondAttribute="trailing" id="4n4-l3-ZU9"/>
-                                                        <constraint firstAttribute="bottom" secondItem="j7B-L0-rw4" secondAttribute="bottom" constant="30" id="963-sZ-r4u"/>
-                                                        <constraint firstItem="j7B-L0-rw4" firstAttribute="top" secondItem="EhX-62-e5n" secondAttribute="top" id="mS3-t5-pcn"/>
-                                                        <constraint firstItem="j7B-L0-rw4" firstAttribute="leading" secondItem="EhX-62-e5n" secondAttribute="leading" id="w6X-6n-UOd"/>
-                                                    </constraints>
-                                                </collectionViewCellContentView>
-                                                <connections>
-                                                    <outlet property="imagesOfMoving" destination="j7B-L0-rw4" id="3nD-JE-xZu"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ubI-EM-vgK">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="112"/>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="5HW-nW-iAE"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="olI-z6-5fi"/>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="jOs-Ye-jxT" firstAttribute="top" secondItem="bFB-q8-1h8" secondAttribute="top" id="97a-O7-giU"/>
-                                    <constraint firstAttribute="bottom" secondItem="jOs-Ye-jxT" secondAttribute="bottom" id="TuS-7N-bMl"/>
-                                    <constraint firstAttribute="trailing" secondItem="jOs-Ye-jxT" secondAttribute="trailing" id="ULD-WJ-WXN"/>
-                                    <constraint firstItem="jOs-Ye-jxT" firstAttribute="leading" secondItem="bFB-q8-1h8" secondAttribute="leading" id="w2R-bd-V8V"/>
+                                    <constraint firstItem="ubI-EM-vgK" firstAttribute="leading" secondItem="bFB-q8-1h8" secondAttribute="leading" id="8XM-Pg-X0b"/>
+                                    <constraint firstItem="ubI-EM-vgK" firstAttribute="top" secondItem="bFB-q8-1h8" secondAttribute="top" id="Dbf-Ck-6sj"/>
+                                    <constraint firstAttribute="bottom" secondItem="ubI-EM-vgK" secondAttribute="bottom" id="Md4-Dt-PwF"/>
+                                    <constraint firstAttribute="trailing" secondItem="ubI-EM-vgK" secondAttribute="trailing" id="Odu-8W-iaE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -125,8 +95,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionview" destination="jOs-Ye-jxT" id="MGj-C0-fq2"/>
                         <outlet property="gifMakerProLable" destination="HCI-6n-hO5" id="MCg-3J-IgM"/>
+                        <outlet property="scrollView" destination="ubI-EM-vgK" id="V3e-07-RUd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,7 +124,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cool" width="170.66667175292969" height="170.66667175292969"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
