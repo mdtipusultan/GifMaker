@@ -4,81 +4,64 @@ class PurchaseVC: UIViewController {
 
     var currentIndex: Int = 0
 
-    //@IBOutlet weak var scrollView: UIView!
-
     @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var gifMakerProLable: UIView!
-    let images = [UIImage(named: "emoticon"), UIImage(named: "devil"), UIImage(named: "cool"), UIImage(named: "angry")]
     
+    @IBOutlet weak var subscriptionView: UIView!
+    
+    @IBOutlet weak var yearView: UIView!
+    
+    @IBOutlet weak var monthView: UIView!
+    
+    @IBOutlet weak var freeView: UIView!
+    
+    @IBOutlet weak var tryAndSubscribeLable: UIView!
+    
+    
+    let images = [UIImage(named: "emoticon"), UIImage(named: "devil"), UIImage(named: "cool"), UIImage(named: "angry")]
+
     // Array of titles corresponding to each image
     let imageTitles = ["Emoticon", "Devil", "Cool", "Angry"]
     var timer: Timer?
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         gifMakerProLable.layer.cornerRadius = 10
 
         // Set up the scroll view
-        scrollView.isPagingEnabled = true
+        scrollView.isPagingEnabled = false
         scrollView.delegate = self
 
-        // Calculate the total content width based on the number of images
-        let totalContentWidth = CGFloat(images.count + 2) * view.bounds.width
+        // Configure the scrollView content size to fit the circular arrangement of images and titles
+        let imageWidth: CGFloat = scrollView.frame.width / 3.0
+        let imageHeight: CGFloat = scrollView.frame.height
+        scrollView.contentSize = CGSize(width: CGFloat(images.count * 4) * imageWidth, height: imageHeight)
 
-        // Set the scroll view content size
-        scrollView.contentSize = CGSize(width: totalContentWidth, height: scrollView.bounds.height)
-        
-        // Add image views and labels for each image
-        for (index, image) in images.enumerated() {
-            let imageView = UIImageView(image: image)
+        // Create image views and labels for each image and title and add them to the scrollView in a circular arrangement
+        for i in 0..<images.count * 4 {
+            let circularIndex = i % images.count
+
+            let imageView = UIImageView(image: images[circularIndex])
             imageView.contentMode = .scaleAspectFit
-            imageView.frame = CGRect(x: CGFloat(index + 1) * view.bounds.width, y: 0, width: view.bounds.width, height: scrollView.bounds.height)
+            imageView.frame = CGRect(x: CGFloat(i) * imageWidth, y: 0, width: imageWidth, height: imageHeight)
             scrollView.addSubview(imageView)
 
-            let label = UILabel(frame: CGRect(x: CGFloat(index + 1) * view.bounds.width, y: scrollView.bounds.height + 10, width: view.bounds.width, height: 30))
-            label.text = imageTitles[index]
-            label.textAlignment = .center
-            label.textColor = .black
-            scrollView.addSubview(label)
+            let titleLabel = UILabel(frame: CGRect(x: CGFloat(i) * imageWidth, y: imageHeight, width: imageWidth, height: 30))
+            titleLabel.textAlignment = .center
+            titleLabel.text = imageTitles[circularIndex]
+            scrollView.addSubview(titleLabel)
         }
 
-        // Duplicate the first and last images for circular scrolling
-        let firstImageView = UIImageView(image: images.last as? UIImage)
-        firstImageView.contentMode = .scaleAspectFit
-        firstImageView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: scrollView.bounds.height)
-        scrollView.addSubview(firstImageView)
-
-        let lastImageView = UIImageView(image: images.first as? UIImage)
-        lastImageView.contentMode = .scaleAspectFit
-        lastImageView.frame = CGRect(x: CGFloat(images.count + 1) * view.bounds.width, y: 0, width: view.bounds.width, height: scrollView.bounds.height)
-        scrollView.addSubview(lastImageView)
-
-        // Set the initial content offset to show the second image
-        scrollView.contentOffset = CGPoint(x: view.bounds.width, y: 0)
-
-        // Start the automatic scrolling with a 1-second interval
+        // Start the timer to continuously move the images
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(scrollToNextImage), userInfo: nil, repeats: true)
     }
-
- 
-    
-    
-    
-    @objc func scrollToNextImage() {
-        let newX = scrollView.contentOffset.x + scrollView.bounds.width
-        scrollView.setContentOffset(CGPoint(x: newX, y: 0), animated: true)
-    }
-
-
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Set the navigation bar color to your desired color
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear // Change this to your desired color
-        //startTimer()
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -94,14 +77,15 @@ class PurchaseVC: UIViewController {
         navigationController?.popViewController(animated: true)
         //_ = navigationController?.popToRootViewController(animated: true)
     }
+    @objc func scrollToNextImage() {
+        currentIndex += 1
+        let xOffset = CGFloat(currentIndex % (images.count * 4)) * scrollView.frame.width / 3.0
+        scrollView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: false)
+    }
 }
+
 extension PurchaseVC: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // Check if the scroll view reaches the end, and reset the content offset to create the wheel effect
-        if scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.bounds.width {
-            scrollView.contentOffset.x = view.bounds.width
-        } else if scrollView.contentOffset.x <= 0 {
-            scrollView.contentOffset.x = scrollView.contentSize.width - 2 * scrollView.bounds.width
-        }
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        // This method is not used for the continuous loop
     }
 }
