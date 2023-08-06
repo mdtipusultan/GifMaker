@@ -28,6 +28,20 @@ class PurchaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gifMakerProLable.layer.cornerRadius = 10
+        
+        subscriptionView.layer.cornerRadius = 10
+        monthView.layer.cornerRadius = 10
+        yearView.layer.cornerRadius = 10
+        freeView.layer.cornerRadius = 10
+        let cornerRadius: CGFloat = 10.0
+               let maskPath = UIBezierPath(roundedRect: tryAndSubscribeLable.bounds,
+                                           byRoundingCorners: [.bottomLeft, .bottomRight],
+                                           cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+
+               let maskLayer = CAShapeLayer()
+               maskLayer.path = maskPath.cgPath
+        tryAndSubscribeLable.layer.mask = maskLayer
+        //tryAndSubscribeLable.layer.cornerRadius = 10
 
         // Set up the scroll view
         scrollView.isPagingEnabled = false
