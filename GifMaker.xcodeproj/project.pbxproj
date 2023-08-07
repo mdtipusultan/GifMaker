@@ -79,7 +79,6 @@
 				E82ED5192A6FF2C100AFECE6 /* photoEdit */,
 				E82ED5182A6FF2A300AFECE6 /* settings */,
 				E82ED5172A6FF27800AFECE6 /* CreateVC */,
-				E8DE64272A78FABC0032A742 /* gifVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E83A82642A76A8E1007D4E92 /* Helper.swift */,
+				E8DE64272A78FABC0032A742 /* gifVC.swift */,
 				E82ED5162A6FF25400AFECE6 /* Controllers */,
 				E8AD8B482A65777900C7BC31 /* AppDelegate.swift */,
 				E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */,

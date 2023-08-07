@@ -11,24 +11,35 @@ class PurchaseVC: UIViewController {
     @IBOutlet weak var subscriptionView: UIView!
     
     @IBOutlet weak var yearView: UIView!
-    
     @IBOutlet weak var monthView: UIView!
-    
     @IBOutlet weak var freeView: UIView!
     
     @IBOutlet weak var tryAndSubscribeLable: UIView!
+    @IBOutlet weak var offerview1: UIView!
+    @IBOutlet weak var offerview2: UIView!
+    @IBOutlet weak var tryAndSubscribeTitle: UILabel!
     
+    
+    @IBOutlet weak var yearlyButton: UIButton!
+    @IBOutlet weak var monthlyButton: UIButton!
+    @IBOutlet weak var trailButton: UIButton!
+    
+    @IBOutlet weak var unselectedImage: UIImageView!
+    @IBOutlet weak var unselectedimage2: UIImageView!
+    @IBOutlet weak var selectedImage: UIImageView!
     
     let images = [UIImage(named: "emoticon"), UIImage(named: "devil"), UIImage(named: "cool"), UIImage(named: "angry")]
 
     // Array of titles corresponding to each image
     let imageTitles = ["Emoticon", "Devil", "Cool", "Angry"]
     var timer: Timer?
+    var selectedPlan: SubscriptionPlanType = .trial
 
     override func viewDidLoad() {
         super.viewDidLoad()
         gifMakerProLable.layer.cornerRadius = 10
-        
+        offerview1.layer.cornerRadius = 10
+        offerview2.layer.cornerRadius = 10
         subscriptionView.layer.cornerRadius = 10
         monthView.layer.cornerRadius = 10
         yearView.layer.cornerRadius = 10
@@ -41,7 +52,9 @@ class PurchaseVC: UIViewController {
                let maskLayer = CAShapeLayer()
                maskLayer.path = maskPath.cgPath
         tryAndSubscribeLable.layer.mask = maskLayer
-        //tryAndSubscribeLable.layer.cornerRadius = 10
+        
+        // Initialize button states
+          updateButtonStates()
 
         // Set up the scroll view
         scrollView.isPagingEnabled = false
@@ -85,11 +98,53 @@ class PurchaseVC: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
 
     }
+    @IBAction func yearlyButtonTapped(_ sender: UIButton) {
+        selectedPlan = .yearly
+        updateButtonStates()
+        tryAndSubscribeTitle.text = "Subscribe Now"
+        unselectedImage.tintColor = .systemIndigo
+        unselectedimage2.tintColor = .black
+        selectedImage.tintColor = .black
+    }
+
+    @IBAction func monthlyButtonTapped(_ sender: UIButton) {
+        selectedPlan = .monthly
+        updateButtonStates()
+        tryAndSubscribeTitle.text = "Subscribe Now"
+        unselectedImage.tintColor = .black
+        unselectedimage2.tintColor = .systemIndigo
+        selectedImage.tintColor = .black
+    }
+
+    @IBAction func trailButtonTapped(_ sender: UIButton) {
+        selectedPlan = .trial
+        updateButtonStates()
+        tryAndSubscribeTitle.text = "Try free & Subscribe"
+        unselectedImage.tintColor = .black
+        unselectedimage2.tintColor = .black
+        selectedImage.tintColor = .systemIndigo
+    }
+    
+        func updateButtonStates() {
+            
+            switch selectedPlan {
+            case .yearly:
+                unselectedImage.image = UIImage(systemName: "checkmark.circle.fill")
+                unselectedimage2.image = UIImage(systemName: "circle")
+                selectedImage.image = UIImage(systemName: "circle")
+            case .monthly:
+                unselectedImage.image = UIImage(systemName: "circle")
+                unselectedimage2.image = UIImage(systemName: "checkmark.circle.fill")
+                selectedImage.image = UIImage(systemName: "circle")
+            case .trial:
+                unselectedImage.image = UIImage(systemName: "circle")
+                unselectedimage2.image = UIImage(systemName: "circle")
+                selectedImage.image = UIImage(systemName: "checkmark.circle.fill")
+            }
+        }
 
     @IBAction func CloseButtonTapped(_ sender: UIBarButtonItem) {
-        //self.dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
-        //_ = navigationController?.popToRootViewController(animated: true)
     }
     @objc func scrollToNextImage() {
         currentIndex += 1
@@ -102,4 +157,9 @@ extension PurchaseVC: UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         // This method is not used for the continuous loop
     }
+}
+enum SubscriptionPlanType {
+    case yearly
+    case monthly
+    case trial
 }
