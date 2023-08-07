@@ -1,4 +1,5 @@
 # GifMaker
-![First page Screenshot](Simulator Screenshot - iPhone 14 Plus - 2023-08-08 at 00.58.06.png)
-![Settings page Screenshot](Simulator Screenshot - iPhone 14 Plus - 2023-08-08 at 00.58.20.png)
-![Purchase page Screenshot](Simulator Screenshot - iPhone 14 Plus - 2023-08-08 at 00.58.32.png)
+![First page Screenshot](Simulator%20Screenshot%20-%20iPhone%2014%20Plus%20-%202023-08-08%20at%2000.58.06.png)
+![Settings page Screenshot](Simulator%20Screenshot%20-%20iPhone%2014%20Plus%20-%202023-08-08%20at%2000.58.20.png)
+![Purchase page Screenshot](Simulator%20Screenshot%20-%20iPhone%2014%20Plus%20-%202023-08-08%20at%2000.58.32.png)
+
