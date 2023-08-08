@@ -11,10 +11,10 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
     
     @IBOutlet weak var collectionview: UICollectionView!
     // Retrieve the saved GIF data from UserDefaults
-       var savedGifs: [Data] {
-           let userDefaults = UserDefaults.standard
-           return userDefaults.array(forKey: "savedGifs") as? [Data] ?? []
-       }
+    var savedGifs: [Data] {
+        let userDefaults = UserDefaults.standard
+        return userDefaults.array(forKey: "savedGifs") as? [Data] ?? []
+    }
     
     // Message label for displaying "You don't have any saved gif"
     let messageLabel: UILabel = {
@@ -28,24 +28,24 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionview.delegate = self
         collectionview.dataSource = self
         
-      
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         collectionview.reloadData()
         // Add the message label as a subview to the collection view's background view
-             collectionview.backgroundView = messageLabel
-             
-             // Check if the savedGifs array is empty, and show/hide the message label accordingly
-             messageLabel.isHidden = !savedGifs.isEmpty
+        collectionview.backgroundView = messageLabel
+        
+        // Check if the savedGifs array is empty, and show/hide the message label accordingly
+        messageLabel.isHidden = !savedGifs.isEmpty
     }
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
-          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
-          self.navigationController?.pushViewController(destinationVC, animated: true)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+        self.navigationController?.pushViewController(destinationVC, animated: true)
         //destinationVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
     }
@@ -76,16 +76,16 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SavedGifsCollectionViewCell
         
         // Load the GIF data from the savedGifs array
-            let gifData = savedGifs[indexPath.item]
+        let gifData = savedGifs[indexPath.item]
         // Convert the GIF data to images
         if let images = loadImages(from: gifData) {
-              // Display the first image in the GIF as the cell's content
-              cell.savedGifView.image = images.first
-          } else {
-              // If there was an error loading the images, display a placeholder or default image
-              cell.savedGifView.image = UIImage(named: "placeholderImage")
-          }
-
+            // Display the first image in the GIF as the cell's content
+            cell.savedGifView.image = images.first
+        } else {
+            // If there was an error loading the images, display a placeholder or default image
+            cell.savedGifView.image = UIImage(named: "placeholderImage")
+        }
+        
         return cell
     }
     

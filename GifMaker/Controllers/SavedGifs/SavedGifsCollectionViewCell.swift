@@ -10,6 +10,4 @@ import UIKit
 class SavedGifsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var savedGifView: UIImageView!
-    
-    
 }

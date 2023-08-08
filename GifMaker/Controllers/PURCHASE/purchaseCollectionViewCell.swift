@@ -10,6 +10,4 @@ import UIKit
 class purchaseCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imagesOfMoving: UIImageView!
-    
-    
 }
