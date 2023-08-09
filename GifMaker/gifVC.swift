@@ -2,9 +2,9 @@ import UIKit
 
 class gifVC: UIViewController {
     @IBOutlet weak var gifSearchBar: UISearchBar!
-  
+    
     private var gifs: [Gif] = []
-     private var gifCollectionView: UICollectionView!
+    private var gifCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,27 +19,27 @@ class gifVC: UIViewController {
         fetchRandomGIFs()
     }
     private func setupCollectionView() {
-          let layout = UICollectionViewFlowLayout()
-          layout.minimumInteritemSpacing = 4
-          layout.minimumLineSpacing = 4
-          
-          let collectionViewFrame = CGRect(x: 0, y: 200, width: view.bounds.width, height: view.bounds.height)
-          gifCollectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
-          gifCollectionView.delegate = self
-          gifCollectionView.dataSource = self
-          gifCollectionView.backgroundColor = .white // Set the collection view background color
-          
-          // Register the UICollectionViewCell class for the collection view
-          gifCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-          
-          // Add the collection view as a subview to the view controller's view
-          view.addSubview(gifCollectionView)
-      }
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 4
+        layout.minimumLineSpacing = 4
+        
+        let collectionViewFrame = CGRect(x: 0, y: 200, width: view.bounds.width, height: view.bounds.height)
+        gifCollectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
+        gifCollectionView.delegate = self
+        gifCollectionView.dataSource = self
+        gifCollectionView.backgroundColor = .white // Set the collection view background color
+        
+        // Register the UICollectionViewCell class for the collection view
+        gifCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        // Add the collection view as a subview to the view controller's view
+        view.addSubview(gifCollectionView)
+    }
     
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
-          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
-          self.navigationController?.pushViewController(destinationVC, animated: true)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     private func fetchRandomGIFs() {
         let apiKey = "HDwy5Yc1FMnzX83F2zJdyYRQm8oI7y3k"

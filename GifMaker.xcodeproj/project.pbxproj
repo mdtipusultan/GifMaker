@@ -141,16 +141,24 @@
 				E83A82642A76A8E1007D4E92 /* Helper.swift */,
 				E8DE64272A78FABC0032A742 /* gifVC.swift */,
 				E82ED5162A6FF25400AFECE6 /* Controllers */,
+				E8BAEBC32A83EB6000A79B53 /* Views */,
 				E8AD8B482A65777900C7BC31 /* AppDelegate.swift */,
 				E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */,
-				E8AD8B4E2A65777900C7BC31 /* Main.storyboard */,
-				E8DE64292A7A692E0032A742 /* Purchase.storyboard */,
 				E8AD8B542A65777B00C7BC31 /* Assets.xcassets */,
 				E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */,
 				E8AD8B592A65777B00C7BC31 /* Info.plist */,
 				E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */,
 			);
 			path = GifMaker;
+			sourceTree = "<group>";
+		};
+		E8BAEBC32A83EB6000A79B53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8AD8B4E2A65777900C7BC31 /* Main.storyboard */,
+				E8DE64292A7A692E0032A742 /* Purchase.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E8C4ABAA2A7278A2004AE929 /* customTab */ = {
