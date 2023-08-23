@@ -119,13 +119,22 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     // MARK: - Send Video to Different VC
      func sendVideoToDifferentVC(_ videoURL: URL) {
          // Instantiate the different view controller
-         let destinationVC = videoToGifEditVC()
+         //let destinationVC = videoToGifEditVC()
          
-         // Pass the video URL to the different view controller
-         destinationVC.videoURL = videoURL
+         
          
          // Present the different view controller
-         navigationController?.pushViewController(destinationVC, animated: true)
+         //navigationController?.pushViewController(destinationVC, animated: true)
+         
+         
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
+             // Pass the video URL to the different view controller
+             destinationVC.videoURL = videoURL
+             let navigationController = UINavigationController(rootViewController: destinationVC)
+             navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+             self.present(navigationController, animated: true, completion: nil)
+         }
      }
 
     func openPhotoLibrary() {
