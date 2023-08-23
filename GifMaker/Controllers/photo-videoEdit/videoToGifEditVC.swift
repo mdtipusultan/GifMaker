@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import Photos
 
 class videoToGifEditVC: UIViewController {
     
@@ -26,16 +27,34 @@ class videoToGifEditVC: UIViewController {
                     }
                 }
             }
-        
     }
     
     func convertVideoToGIF(videoURL: URL, completion: @escaping (URL?) -> Void) {
-        // Convert the video to a GIF if needed (e.g., using AVAssetExportSession)
-        // Set the completion handler to return the URL of the generated GIF
-        // completion(gifOutputURL)
-        // For this example, let's assume you've prepared the GIF URL already
-        completion(videoURL)
+        let asset = AVURLAsset(url: videoURL)
+        let gifOutputURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("output.mov")
+        
+        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetPassthrough) else {
+            completion(nil)
+            return
+        }
+        
+        exportSession.outputFileType = .mov
+        exportSession.outputURL = gifOutputURL
+        
+        exportSession.exportAsynchronously {
+            if exportSession.status == .completed {
+                DispatchQueue.main.async {
+                    completion(gifOutputURL)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }
     }
+
+
     
     func displayGIF(from gifURL: URL) {
         // Create an AVPlayer with the video URL (GIF)
@@ -70,36 +89,42 @@ class videoToGifEditVC: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        // Make sure a GIF has been loaded
-        guard let playerItem = player?.currentItem,
-              let asset = playerItem.asset as? AVURLAsset else {
-            return
-        }
-        
-        // Prepare the GIF data
-        do {
-            let gifData = try Data(contentsOf: asset.url)
-            
-            // Choose the save location (e.g., documents directory)
-            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            let saveURL = documentsDirectory.appendingPathComponent("savedGIF.gif")
-            
-            // Save the GIF data to the chosen location
-            try gifData.write(to: saveURL)
-            
-            // Show an alert indicating successful saving
-            let alert = UIAlertController(title: "GIF Saved", message: "The GIF has been saved to your documents directory.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        } catch {
-            print("Error saving GIF: \(error)")
-            
-            // Show an alert indicating error
-            let alert = UIAlertController(title: "Error", message: "An error occurred while saving the GIF.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        }
-    }
+           // Make sure a GIF has been loaded
+           guard let playerItem = player?.currentItem,
+                 let asset = playerItem.asset as? AVURLAsset else {
+               return
+           }
 
+           // Prepare the GIF data
+           do {
+               let gifData = try Data(contentsOf: asset.url)
 
+               PHPhotoLibrary.shared().performChanges({
+                   let creationRequest = PHAssetCreationRequest.forAsset()
+                   creationRequest.addResource(with: .photo, data: gifData, options: nil)
+               }) { success, error in
+                   DispatchQueue.main.async {
+                       if success {
+                           // Show success alert
+                       } else if let error = error {
+                           // Print the detailed error description
+                           print("Error saving GIF: \(error)")
+                           
+                           // Show an alert indicating error
+                           let alert = UIAlertController(title: "Error", message: "An error occurred while saving the GIF.", preferredStyle: .alert)
+                           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                           self.present(alert, animated: true, completion: nil)
+                       }
+                   }
+               }
+
+           }  catch {
+               print("Error saving GIF: \(error)")
+               
+               // Show an alert indicating error
+               let alert = UIAlertController(title: "Error", message: "An error occurred while saving the GIF.", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+               present(alert, animated: true, completion: nil)
+           }
+       }
 }
