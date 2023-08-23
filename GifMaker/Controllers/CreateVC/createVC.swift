@@ -37,11 +37,8 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
-          let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
-        //destinationVC.navigationController?.navigationBar.backgroundColor = UIColor.clear
-          self.navigationController?.pushViewController(destinationVC, animated: true)
-        
-        
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
+        self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     //MARK: COLLECTIONVIEW
