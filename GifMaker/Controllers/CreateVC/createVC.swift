@@ -65,8 +65,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         case 1:
             // "Photo to GIF" selected
             openPhotoLibrary()
-            // Perform the segue to the photoToGifEditVC here
-            //performSegue(withIdentifier: "showPhotoToGifEditVC", sender: self)
+            
         case 2:
             // "GIF Editor" selected
             print("GIF Editor selected")
@@ -101,11 +100,13 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func openPhotoLibrary() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
+        configuration.filter = .images // This line filters to show only images
         
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
+
     //i dont know but its not reaching that point
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhotoToGifEditVC" {
