@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-GifMaker/Pods-GifMaker-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
+${BUILT_PRODUCTS_DIR}/Regift/Regift.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework

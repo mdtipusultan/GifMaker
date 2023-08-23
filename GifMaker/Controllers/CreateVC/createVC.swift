@@ -1,15 +1,17 @@
 import UIKit
 import PhotosUI
+import MobileCoreServices
 
 // Define the protocol
 protocol CreateVCDelegate: AnyObject {
     func didSelectImages(_ images: [UIImage])
 }
 
-class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var collectionview: UICollectionView!
-    
+    var selectedVideoURL: URL?
+
     
     let data: [(image: UIImage, title: String, description: String)] = [
         (UIImage(systemName: "video")!, "Video to GIF", "You can convert your videos to gif"),
@@ -61,7 +63,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         switch indexPath.item {
         case 0:
             // "Video to GIF" selected
-            print("Video to GIF selected")
+            openVideoPicker()
         case 1:
             // "Photo to GIF" selected
             openPhotoLibrary()
@@ -97,6 +99,35 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: width, height: height)
     }
     
+    //MARK: VIDEO-PICKER
+    func openVideoPicker() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = [UTType.movie.identifier] // Use UTTypeMovie instead of kUTTypeMovie
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    // MARK: - UIImagePickerControllerDelegate Methods
+      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+          picker.dismiss(animated: true, completion: nil)
+          
+          if let videoURL = info[.mediaURL] as? URL {
+              // Call a method to send the video URL to a different view controller
+              sendVideoToDifferentVC(videoURL)
+          }
+      }
+    // MARK: - Send Video to Different VC
+     func sendVideoToDifferentVC(_ videoURL: URL) {
+         // Instantiate the different view controller
+         let destinationVC = videoToGifEditVC()
+         
+         // Pass the video URL to the different view controller
+         destinationVC.videoURL = videoURL
+         
+         // Present the different view controller
+         navigationController?.pushViewController(destinationVC, animated: true)
+     }
+
     func openPhotoLibrary() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
@@ -106,7 +137,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
-
+/*
     //i dont know but its not reaching that point
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhotoToGifEditVC" {
@@ -117,6 +148,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             }
         }
     }
+    */
 }
 
 extension createVC: PHPickerViewControllerDelegate {
