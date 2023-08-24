@@ -1,9 +1,18 @@
 import UIKit
+import StoreKit
 
 class PurchaseVC: UIViewController {
     
     var currentIndex: Int = 0
     var selectedSubscriptionPlan: SubscriptionPlanType = .trial
+    
+    // Replace this with your actual product identifiers
+    let yearlySubscriptionProductID = "com.yourapp.yearlysubscription"
+    let monthlySubscriptionProductID = "com.yourapp.monthlysubscription"
+    let trialSubscriptionProductID = "com.yourapp.trialsubscription"
+    
+    var availableProducts: [SKProduct] = [] // Define and populate this variable with available products
+
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -114,6 +123,7 @@ class PurchaseVC: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
         
     }
+
     //MARK: currentFormatOfAmounts
     func formatAmount(_ amount: Double, withCurrencySymbol currencySymbol: String) -> String {
         let formattedAmount = String(format: "%@%.2f", currencySymbol, amount)
@@ -205,47 +215,101 @@ class PurchaseVC: UIViewController {
     
     @IBAction func SubscribeButton(_ sender: UIButton) {
         switch selectedSubscriptionPlan {
-
+            
         case .yearly:
             print("yearly")
-            
-              // Handle yearly subscription
-          case .monthly:
+            // Start the purchase process
+                    purchaseProduct(productID: yearlySubscriptionProductID)
+            // Handle yearly subscription
+        case .monthly:
             print("montthly")
-              // Handle monthly subscription
-          case .trial:
+            // Handle monthly subscription
+            // Start the purchase process
+                 purchaseProduct(productID: monthlySubscriptionProductID)
+        case .trial:
             print("trail")
-              // Handle trial subscription
-          }
+            // Handle trial subscription
+            // Start the purchase process
+              purchaseProduct(productID: trialSubscriptionProductID)
+        }
     }
+    //MARK: In-App Purchase Methods
+    func purchaseProduct(productID: String) {
+        if SKPaymentQueue.canMakePayments() {
+            if let product = getProductFromID(productID) {
+                let payment = SKPayment(product: product)
+                SKPaymentQueue.default().add(payment)
+            } else {
+                // The product with the specified productID was not found
+                // Handle this case appropriately
+            }
+        } else {
+            // In-app purchases are disabled
+            // Show an alert to the user
+        }
+    }
+
     
+    func getProductFromID(_ productID: String) -> SKProduct? {
+          return availableProducts.first { product in
+              product.productIdentifier == productID
+          }
+      }
     @IBAction func RestoreButton(_ sender: UIButton) {
     }
     
     @IBAction func TermsOfService(_ sender: UIButton) {
         if let url = URL(string: "https://www.example.com/terms") {
-                   UIApplication.shared.open(url)
-               }
+            UIApplication.shared.open(url)
+        }
     }
     
     @IBAction func PrivacyPolicy(_ sender: UIButton) {
         if let url = URL(string: "https://www.example.com/privacy") {
-                   UIApplication.shared.open(url)
-               }
+            UIApplication.shared.open(url)
+        }
     }
     
     @IBAction func infoButtton(_ sender: UIBarButtonItem) {
         if let url = URL(string: "https://www.example.com/info") {
-               UIApplication.shared.open(url)
-           }
+            UIApplication.shared.open(url)
+        }
     }
     
 }
 //MARK: Extension
-extension PurchaseVC: UIScrollViewDelegate {
+extension PurchaseVC: UIScrollViewDelegate,SKProductsRequestDelegate, SKPaymentTransactionObserver {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         // This method is not used for the continuous loop
     }
+    
+    //MARK: StoreKit Delegate Methods
+        func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+            availableProducts = response.products
+        }
+
+        func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+            for transaction in transactions {
+                switch transaction.transactionState {
+                case .purchased:
+                    // Handle successful purchase
+                    // Validate receipt on server, unlock premium features, etc.
+                    SKPaymentQueue.default().finishTransaction(transaction)
+                case .failed:
+                    // Handle failed purchase
+                    SKPaymentQueue.default().finishTransaction(transaction)
+                case .restored:
+                    // Handle restored purchase (e.g., if user reinstalled the app)
+                    SKPaymentQueue.default().finishTransaction(transaction)
+                case .deferred, .purchasing:
+                    // In-progress or deferred transaction, no action needed here
+                    break
+                @unknown default:
+                    // Handle any future cases that might be added by Apple
+                    break
+                }
+            }
+        }
 }
 enum SubscriptionPlanType {
     case yearly
