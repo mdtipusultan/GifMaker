@@ -163,9 +163,6 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         case 1:
             switch indexPath.row {
             case 0:
-                // Perform the segue to the "PurchaseViewController"
-                //performSegue(withIdentifier: "showPurchaseVC", sender: nil)
-                print("showpurchase")
                 let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
                 let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
                 self.navigationController?.pushViewController(destinationVC, animated: true)
@@ -195,17 +192,17 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 //performSegue(withIdentifier: "showVisitOurSiteVC", sender: nil)
                 print("showVisitOurSiteVC")
             case 4:
-                // Perform the segue to the "TermsAndConditionViewController"
-                //performSegue(withIdentifier: "showTermsAndConditionVC", sender: nil)
-                print("showTermsAndConditionVC")
+                if let url = URL(string: "https://www.example.com/terms") {
+                           UIApplication.shared.open(url)
+                       }
             case 5:
-                // Perform the segue to the "PrivacyPolicyViewController"
-                //performSegue(withIdentifier: "showPrivacyPolicyVC", sender: nil)
-                print("showPrivacyPolicyVC")
+                if let url = URL(string: "https://www.example.com/privacy") {
+                           UIApplication.shared.open(url)
+                       }
             case 6:
-                // Perform the segue to the "AboutSubscriptionViewController"
-                //performSegue(withIdentifier: "showAboutSubscriptionVC", sender: nil)
-                print("showAboutSubscriptionVC")
+                if let url = URL(string: "https://www.example.com/info") {
+                       UIApplication.shared.open(url)
+                   }
             default:
                 break
             }
