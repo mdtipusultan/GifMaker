@@ -36,7 +36,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access All Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5d-R7-Pa8">
-                                        <rect key="frame" x="46" y="168" width="301.33333333333337" height="39.666666666666657"/>
+                                        <rect key="frame" x="46" y="168" width="301.33333333333331" height="39.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CmD-Sh-eBN">
-                                                <rect key="frame" x="10.000000000000002" y="15.999999999999998" width="19.666666666666671" height="18.666666666666664"/>
+                                                <rect key="frame" x="10.000000000000002" y="16" width="19.666666666666671" height="18.666666666666657"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BDT 2,000.00 / Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5y-1C-6vC">
@@ -220,8 +220,8 @@ OFF</string>
                                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start 03 Days Free Trail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPA-PE-Ig7">
-                                                <rect key="frame" x="85.333333333333329" y="15" width="142.33333333333337" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="83.666666666666671" y="15" width="145.66666666666663" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -249,6 +249,15 @@ OFF</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rwp-kj-ZmC" userLabel="lableView">
                                         <rect key="frame" x="0.0" y="250" width="353" height="50"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idk-kU-PlJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="353" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="SubscribeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jz5-zw-6d4"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try free &amp; Subscribe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtS-Wh-qRN">
                                                 <rect key="frame" x="58.666666666666686" y="10" width="236" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -259,7 +268,11 @@ OFF</string>
                                         <color key="backgroundColor" red="0.92440146209999996" green="0.47360330820000002" blue="0.2077231705" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="UtS-Wh-qRN" firstAttribute="centerX" secondItem="Rwp-kj-ZmC" secondAttribute="centerX" id="12m-dX-1kG"/>
+                                            <constraint firstItem="Idk-kU-PlJ" firstAttribute="leading" secondItem="Rwp-kj-ZmC" secondAttribute="leading" id="ET6-WU-tnp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Idk-kU-PlJ" secondAttribute="trailing" id="Fdq-H6-Au0"/>
                                             <constraint firstItem="UtS-Wh-qRN" firstAttribute="centerY" secondItem="Rwp-kj-ZmC" secondAttribute="centerY" id="PEc-JH-6Gq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Idk-kU-PlJ" secondAttribute="bottom" id="R13-M9-GJR"/>
+                                            <constraint firstItem="Idk-kU-PlJ" firstAttribute="top" secondItem="Rwp-kj-ZmC" secondAttribute="top" id="mD4-PH-NIK"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -290,7 +303,7 @@ OFF</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7c3-P2-ZTz">
-                                <rect key="frame" x="136.33333333333334" y="715" width="120.33333333333334" height="28"/>
+                                <rect key="frame" x="137" y="715" width="119.33333333333331" height="28"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" link="YES"/>
                                 </accessibility>
@@ -307,10 +320,21 @@ OFF</string>
                                         </fragment>
                                     </attributedString>
                                 </state>
-                                <buttonConfiguration key="configuration" style="plain" title="Restore Purchase">
-                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                    <attributedString key="attributedSubtitle"/>
+                                <buttonConfiguration key="configuration" style="plain" subtitle="">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Restore Purchase">
+                                            <attributes>
+                                                <color key="NSColor" red="0.31607174869999999" green="0.50953888889999999" blue="0.72944003339999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="12" name="SFProDisplay-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="RestoreButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cdd-8g-9yq"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By subscribing, you agree our " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITh-wO-iz9">
                                 <rect key="frame" x="110.66666666666669" y="753" width="172" height="14.333333333333371"/>
@@ -322,7 +346,7 @@ OFF</string>
                                 <rect key="frame" x="80" y="767.33333333333337" width="235" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-ot-lfj">
-                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113.33333333333333" height="28"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" link="YES"/>
                                         </accessibility>
@@ -339,13 +363,22 @@ OFF</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" title="Terms of Service">
-                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                            <attributedString key="attributedSubtitle"/>
+                                        <buttonConfiguration key="configuration" style="plain" subtitle="">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Terms of Service">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="SFProText-Regular"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="TermsOfService:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aeB-mV-mjF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TuY-mC-zTR">
-                                        <rect key="frame" x="134.66666666666666" y="0.0" width="99" height="28"/>
+                                        <rect key="frame" x="134.33333333333334" y="0.0" width="99" height="28"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" link="YES"/>
                                         </accessibility>
@@ -362,13 +395,23 @@ OFF</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" title="Privacy Policy">
-                                            <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Privacy Policy">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <attributedString key="attributedSubtitle"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="PrivacyPolicy:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yQ6-gb-uRN"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vES-lH-zYx" userLabel="and">
-                                        <rect key="frame" x="113.66666666666666" y="5.0000000000000009" width="21" height="14.333333333333336"/>
+                                        <rect key="frame" x="113.33333333333334" y="5.0000000000000009" width="21" height="14.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
@@ -417,6 +460,9 @@ OFF</string>
                     <navigationItem key="navigationItem" id="Lrg-Eb-R1f">
                         <barButtonItem key="leftBarButtonItem" image="info.circle" catalog="system" id="CO3-6U-NqS">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="infoButtton:" destination="Y6W-OH-hqX" id="HXu-tf-N24"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Close" id="kKe-lF-Lf6">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -86,18 +86,18 @@ class PurchaseVC: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         let cornerRadius: CGFloat = 10.0
         let maskPath = UIBezierPath(roundedRect: tryAndSubscribeLable.bounds,
                                     byRoundingCorners: [.bottomLeft, .bottomRight],
                                     cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
-
+        
         let maskLayer = CAShapeLayer()
         maskLayer.path = maskPath.cgPath
         tryAndSubscribeLable.layer.mask = maskLayer
     }
-
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -115,36 +115,36 @@ class PurchaseVC: UIViewController {
     }
     //MARK: currentFormatOfAmounts
     func formatAmount(_ amount: Double, withCurrencySymbol currencySymbol: String) -> String {
-        let formattedAmount = String(format: "%@ %.2f", currencySymbol, amount)
+        let formattedAmount = String(format: "%@%.2f", currencySymbol, amount)
         return formattedAmount
     }
-
+    
     func currentFormatOfAmounts() {
         let currentLocale = Locale.current
         let currencySymbol = currentLocale.currencySymbol ?? ""
-
+        
         let yearlyAmount = 18.35
         let formattedYearlyAmount = formatAmount(yearlyAmount, withCurrencySymbol: currencySymbol)
         yearAmountLable.text = "\(formattedYearlyAmount) / Year"
-
+        
         let sixMonthlyAmount = 10.99
         let formattedSixMonthlyAmount = formatAmount(sixMonthlyAmount, withCurrencySymbol: currencySymbol)
-        moonthAmountLable.text = "\(formattedSixMonthlyAmount) / Months"
+        moonthAmountLable.text = "\(formattedSixMonthlyAmount) / 6 Months"
         
         let monthlyAmount = 4.58
         let formattedMonthlyAmount = formatAmount(monthlyAmount, withCurrencySymbol: currencySymbol)
-        freeTrialAmountLable.text = "Then \(formattedMonthlyAmount) / month"
+        freeTrialAmountLable.text = "(Then \(formattedMonthlyAmount) / Month)"
         
         
         let yearlyAmountForMonths = 1.53
         let formattedYearlyAmountForMonths = formatAmount(yearlyAmountForMonths, withCurrencySymbol: currencySymbol)
         twelveMoonthLable.text = "(12 months at \(formattedYearlyAmountForMonths) / month)"
-
+        
         let sixMonthlyAmountForMonths = 1.83
         let formattedSixMonthlyAmountForMonths = formatAmount(sixMonthlyAmountForMonths, withCurrencySymbol: currencySymbol)
         sixMonthLable.text = "(6 month at \(formattedSixMonthlyAmountForMonths) / month)"
     }
-
+    //MARK: BUTTTONS TAPPED
     @IBAction func yearlyButtonTapped(_ sender: UIButton) {
         selectedPlan = .yearly
         updateButtonStates()
@@ -171,7 +171,7 @@ class PurchaseVC: UIViewController {
         unselectedimage2.tintColor = .black
         selectedImage.tintColor = .systemIndigo
     }
-    
+    //MARK: update status of buttons
     func updateButtonStates() {
         
         switch selectedPlan {
@@ -189,17 +189,42 @@ class PurchaseVC: UIViewController {
             selectedImage.image = UIImage(systemName: "checkmark.circle.fill")
         }
     }
-    
-    @IBAction func CloseButtonTapped(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
-    }
     @objc func scrollToNextImage() {
         currentIndex += 1
         let xOffset = CGFloat(currentIndex % (images.count * 4)) * scrollView.frame.width / 3.0
         scrollView.setContentOffset(CGPoint(x: xOffset, y: 0), animated: false)
     }
+    //MARK: Others BUTTTON TAPPED
+    @IBAction func CloseButtonTapped(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func SubscribeButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func RestoreButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func TermsOfService(_ sender: UIButton) {
+        if let url = URL(string: "https://www.example.com/terms") {
+                   UIApplication.shared.open(url)
+               }
+    }
+    
+    @IBAction func PrivacyPolicy(_ sender: UIButton) {
+        if let url = URL(string: "https://www.example.com/privacy") {
+                   UIApplication.shared.open(url)
+               }
+    }
+    
+    @IBAction func infoButtton(_ sender: UIBarButtonItem) {
+        if let url = URL(string: "https://www.example.com/info") {
+               UIApplication.shared.open(url)
+           }
+    }
+    
 }
-
+//MARK: Extension
 extension PurchaseVC: UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         // This method is not used for the continuous loop
