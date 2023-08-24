@@ -44,14 +44,7 @@ class PurchaseVC: UIViewController {
         monthView.layer.cornerRadius = 10
         yearView.layer.cornerRadius = 10
         freeView.layer.cornerRadius = 10
-        let cornerRadius: CGFloat = 10.0
-        let maskPath = UIBezierPath(roundedRect: tryAndSubscribeLable.bounds,
-                                    byRoundingCorners: [.bottomLeft, .bottomRight],
-                                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = maskPath.cgPath
-        tryAndSubscribeLable.layer.mask = maskLayer
         
         // Initialize button states
         updateButtonStates()
@@ -83,6 +76,20 @@ class PurchaseVC: UIViewController {
         // Start the timer to continuously move the images
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(scrollToNextImage), userInfo: nil, repeats: true)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        let cornerRadius: CGFloat = 10.0
+        let maskPath = UIBezierPath(roundedRect: tryAndSubscribeLable.bounds,
+                                    byRoundingCorners: [.bottomLeft, .bottomRight],
+                                    cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = maskPath.cgPath
+        tryAndSubscribeLable.layer.mask = maskLayer
+    }
+
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
