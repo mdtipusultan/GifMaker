@@ -3,6 +3,7 @@ import UIKit
 class PurchaseVC: UIViewController {
     
     var currentIndex: Int = 0
+    var selectedSubscriptionPlan: SubscriptionPlanType = .trial
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -146,6 +147,7 @@ class PurchaseVC: UIViewController {
     }
     //MARK: BUTTTONS TAPPED
     @IBAction func yearlyButtonTapped(_ sender: UIButton) {
+        selectedSubscriptionPlan = .yearly
         selectedPlan = .yearly
         updateButtonStates()
         tryAndSubscribeTitle.text = "Subscribe Now"
@@ -155,6 +157,7 @@ class PurchaseVC: UIViewController {
     }
     
     @IBAction func monthlyButtonTapped(_ sender: UIButton) {
+        selectedSubscriptionPlan = .monthly
         selectedPlan = .monthly
         updateButtonStates()
         tryAndSubscribeTitle.text = "Subscribe Now"
@@ -164,6 +167,7 @@ class PurchaseVC: UIViewController {
     }
     
     @IBAction func trailButtonTapped(_ sender: UIButton) {
+        selectedSubscriptionPlan = .trial
         selectedPlan = .trial
         updateButtonStates()
         tryAndSubscribeTitle.text = "Try free & Subscribe"
@@ -200,6 +204,19 @@ class PurchaseVC: UIViewController {
     }
     
     @IBAction func SubscribeButton(_ sender: UIButton) {
+        switch selectedSubscriptionPlan {
+
+        case .yearly:
+            print("yearly")
+            
+              // Handle yearly subscription
+          case .monthly:
+            print("montthly")
+              // Handle monthly subscription
+          case .trial:
+            print("trail")
+              // Handle trial subscription
+          }
     }
     
     @IBAction func RestoreButton(_ sender: UIButton) {
