@@ -36,7 +36,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access All Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5d-R7-Pa8">
-                                        <rect key="frame" x="46" y="168" width="301.33333333333331" height="39.666666666666657"/>
+                                        <rect key="frame" x="46" y="168" width="301.33333333333337" height="39.666666666666657"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CmD-Sh-eBN">
-                                                <rect key="frame" x="10.000000000000002" y="16" width="19.666666666666671" height="18.666666666666657"/>
+                                                <rect key="frame" x="10.000000000000002" y="15.999999999999998" width="19.666666666666671" height="18.666666666666664"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BDT 2,000.00 / Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5y-1C-6vC">
@@ -93,7 +93,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(12 months at BDT 166.67 / month)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHQ-76-Pig">
-                                                <rect key="frame" x="39.666666666666671" y="33.666666666666686" width="168" height="12"/>
+                                                <rect key="frame" x="39.666666666666671" y="30.666666666666686" width="168" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -126,7 +126,7 @@ OFF</string>
                                             <constraint firstAttribute="trailing" secondItem="TGO-Au-Hfg" secondAttribute="trailing" constant="5" id="7G2-GM-NUj"/>
                                             <constraint firstItem="A5y-1C-6vC" firstAttribute="top" secondItem="lyY-Pz-31Z" secondAttribute="top" constant="10" id="AHe-VT-E7s"/>
                                             <constraint firstItem="DQk-4E-xdh" firstAttribute="top" secondItem="lyY-Pz-31Z" secondAttribute="top" id="Bi5-pn-fCN"/>
-                                            <constraint firstItem="LHQ-76-Pig" firstAttribute="top" secondItem="A5y-1C-6vC" secondAttribute="bottom" constant="8" id="CZa-OR-Frt"/>
+                                            <constraint firstItem="LHQ-76-Pig" firstAttribute="top" secondItem="A5y-1C-6vC" secondAttribute="bottom" constant="5" id="CZa-OR-Frt"/>
                                             <constraint firstItem="TGO-Au-Hfg" firstAttribute="centerY" secondItem="lyY-Pz-31Z" secondAttribute="centerY" id="OqB-3a-uNr"/>
                                             <constraint firstAttribute="trailing" secondItem="DQk-4E-xdh" secondAttribute="trailing" id="Q1G-el-ed4"/>
                                             <constraint firstItem="CmD-Sh-eBN" firstAttribute="leading" secondItem="lyY-Pz-31Z" secondAttribute="leading" constant="10" id="QwG-T1-RQn"/>
@@ -159,7 +159,7 @@ OFF</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(6 months at BDT 200.00 / month)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlp-Tc-Cfl">
-                                                <rect key="frame" x="39.666666666666671" y="33.666666666666686" width="165.33333333333331" height="12"/>
+                                                <rect key="frame" x="39.666666666666671" y="30.666666666666686" width="165.33333333333331" height="12"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,7 +193,7 @@ OFF</string>
                                             <constraint firstItem="Cma-aQ-tUw" firstAttribute="leading" secondItem="w9v-ho-qB6" secondAttribute="trailing" constant="10" id="AYc-Lh-TYG"/>
                                             <constraint firstItem="w9v-ho-qB6" firstAttribute="centerY" secondItem="f6g-fg-k79" secondAttribute="centerY" id="AuD-fl-0j3"/>
                                             <constraint firstItem="Cma-aQ-tUw" firstAttribute="top" secondItem="f6g-fg-k79" secondAttribute="top" constant="10" id="Ff4-wZ-2N0"/>
-                                            <constraint firstItem="rlp-Tc-Cfl" firstAttribute="top" secondItem="Cma-aQ-tUw" secondAttribute="bottom" constant="8" id="QM0-Db-gzH"/>
+                                            <constraint firstItem="rlp-Tc-Cfl" firstAttribute="top" secondItem="Cma-aQ-tUw" secondAttribute="bottom" constant="5" id="QM0-Db-gzH"/>
                                             <constraint firstAttribute="bottom" secondItem="1Sw-wJ-dPR" secondAttribute="bottom" constant="2" id="RsQ-jx-qwz"/>
                                             <constraint firstItem="w9v-ho-qB6" firstAttribute="height" secondItem="f6g-fg-k79" secondAttribute="height" multiplier="20/50" id="UUO-ss-aMs"/>
                                             <constraint firstAttribute="trailing" secondItem="8cB-xv-F2a" secondAttribute="trailing" constant="8" id="ePi-ak-gzy"/>
@@ -427,20 +427,25 @@ OFF</string>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="freeTrialAmountLable" destination="gJK-VL-rWf" id="9eu-HS-qT2"/>
                         <outlet property="freeView" destination="31r-uE-nqE" id="0yX-Ee-RfL"/>
                         <outlet property="gifMakerProLable" destination="HCI-6n-hO5" id="MCg-3J-IgM"/>
                         <outlet property="monthView" destination="f6g-fg-k79" id="GC4-Q0-GbD"/>
                         <outlet property="monthlyButton" destination="1Sw-wJ-dPR" id="Ixf-Ve-Jcs"/>
+                        <outlet property="moonthAmountLable" destination="Cma-aQ-tUw" id="UjC-AS-MMV"/>
                         <outlet property="offerview1" destination="TGO-Au-Hfg" id="am4-TN-nBd"/>
                         <outlet property="offerview2" destination="8cB-xv-F2a" id="mil-xI-lfj"/>
                         <outlet property="scrollView" destination="ubI-EM-vgK" id="V3e-07-RUd"/>
                         <outlet property="selectedImage" destination="6NF-7M-cfr" id="KE0-Lc-6l6"/>
+                        <outlet property="sixMonthLable" destination="rlp-Tc-Cfl" id="2LG-xz-YGk"/>
                         <outlet property="subscriptionView" destination="xJ1-da-7ZX" id="OY8-08-8Oj"/>
                         <outlet property="trailButton" destination="nkn-bY-JJ3" id="giv-om-9uS"/>
                         <outlet property="tryAndSubscribeLable" destination="Rwp-kj-ZmC" id="XHD-nb-kmn"/>
                         <outlet property="tryAndSubscribeTitle" destination="UtS-Wh-qRN" id="kyW-ya-wKc"/>
+                        <outlet property="twelveMoonthLable" destination="LHQ-76-Pig" id="CDZ-ep-NPd"/>
                         <outlet property="unselectedImage" destination="CmD-Sh-eBN" id="kYk-qf-bvE"/>
                         <outlet property="unselectedimage2" destination="w9v-ho-qB6" id="Xhs-D6-K6d"/>
+                        <outlet property="yearAmountLable" destination="A5y-1C-6vC" id="pqS-Bd-RRU"/>
                         <outlet property="yearView" destination="lyY-Pz-31Z" id="DaW-Zn-Tph"/>
                         <outlet property="yearlyButton" destination="DQk-4E-xdh" id="L6m-qh-XpE"/>
                     </connections>

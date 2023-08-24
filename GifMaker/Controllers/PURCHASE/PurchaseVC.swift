@@ -19,7 +19,6 @@ class PurchaseVC: UIViewController {
     @IBOutlet weak var offerview2: UIView!
     @IBOutlet weak var tryAndSubscribeTitle: UILabel!
     
-    
     @IBOutlet weak var yearlyButton: UIButton!
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var trailButton: UIButton!
@@ -27,6 +26,14 @@ class PurchaseVC: UIViewController {
     @IBOutlet weak var unselectedImage: UIImageView!
     @IBOutlet weak var unselectedimage2: UIImageView!
     @IBOutlet weak var selectedImage: UIImageView!
+    
+    @IBOutlet weak var yearAmountLable: UILabel!
+    @IBOutlet weak var moonthAmountLable: UILabel!
+    
+    @IBOutlet weak var twelveMoonthLable: UILabel!
+    @IBOutlet weak var sixMonthLable: UILabel!
+    @IBOutlet weak var freeTrialAmountLable: UILabel!
+    
     
     let images = [UIImage(named: "emoticon"), UIImage(named: "devil"), UIImage(named: "cool"), UIImage(named: "angry")]
     
@@ -75,6 +82,7 @@ class PurchaseVC: UIViewController {
         
         // Start the timer to continuously move the images
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(scrollToNextImage), userInfo: nil, repeats: true)
+        currentFormatOfAmounts()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -105,6 +113,38 @@ class PurchaseVC: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
         
     }
+    //MARK: currentFormatOfAmounts
+    func formatAmount(_ amount: Double, withCurrencySymbol currencySymbol: String) -> String {
+        let formattedAmount = String(format: "%@ %.2f", currencySymbol, amount)
+        return formattedAmount
+    }
+
+    func currentFormatOfAmounts() {
+        let currentLocale = Locale.current
+        let currencySymbol = currentLocale.currencySymbol ?? ""
+
+        let yearlyAmount = 18.35
+        let formattedYearlyAmount = formatAmount(yearlyAmount, withCurrencySymbol: currencySymbol)
+        yearAmountLable.text = "\(formattedYearlyAmount) / Year"
+
+        let sixMonthlyAmount = 10.99
+        let formattedSixMonthlyAmount = formatAmount(sixMonthlyAmount, withCurrencySymbol: currencySymbol)
+        moonthAmountLable.text = "\(formattedSixMonthlyAmount) / Months"
+        
+        let monthlyAmount = 4.58
+        let formattedMonthlyAmount = formatAmount(monthlyAmount, withCurrencySymbol: currencySymbol)
+        freeTrialAmountLable.text = "Then \(formattedMonthlyAmount) / month"
+        
+        
+        let yearlyAmountForMonths = 1.53
+        let formattedYearlyAmountForMonths = formatAmount(yearlyAmountForMonths, withCurrencySymbol: currencySymbol)
+        twelveMoonthLable.text = "(12 months at \(formattedYearlyAmountForMonths) / month)"
+
+        let sixMonthlyAmountForMonths = 1.83
+        let formattedSixMonthlyAmountForMonths = formatAmount(sixMonthlyAmountForMonths, withCurrencySymbol: currencySymbol)
+        sixMonthLable.text = "(6 month at \(formattedSixMonthlyAmountForMonths) / month)"
+    }
+
     @IBAction func yearlyButtonTapped(_ sender: UIButton) {
         selectedPlan = .yearly
         updateButtonStates()
