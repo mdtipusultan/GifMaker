@@ -1,4 +1,6 @@
 import UIKit
+import FLAnimatedImage
+
 
 class gifVC: UIViewController {
     @IBOutlet weak var gifSearchBar: UISearchBar!
@@ -15,9 +17,10 @@ class gifVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupCollectionView()
         
-        // Load random GIFs initially
+        // Load multiple random GIFs initially
         fetchRandomGIFs()
     }
+
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 4
@@ -27,7 +30,7 @@ class gifVC: UIViewController {
         gifCollectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: layout)
         gifCollectionView.delegate = self
         gifCollectionView.dataSource = self
-        gifCollectionView.backgroundColor = .white // Set the collection view background color
+        gifCollectionView.backgroundColor = .clear// Set the collection view background color
         
         // Register the UICollectionViewCell class for the collection view
         gifCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -56,6 +59,8 @@ class gifVC: UIViewController {
             }
         }.resume()
     }
+
+
     
     private func searchGIFs(query: String) {
         let apiKey = "HDwy5Yc1FMnzX83F2zJdyYRQm8oI7y3k"
@@ -106,23 +111,38 @@ extension gifVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        
         let gif = gifs[indexPath.item]
         
-        // You can customize the cell here to display the GIF URL or any other information
-        // For simplicity, we will just set the URL as the cell's label text.
-        if let label = cell.viewWithTag(100) as? UILabel {
-            label.text = gif.images.original.url
+        // Create or reuse an existing FLAnimatedImageView
+        var imageView: FLAnimatedImageView? = cell.contentView.viewWithTag(101) as? FLAnimatedImageView
+        
+        if imageView == nil {
+            imageView = FLAnimatedImageView(frame: cell.contentView.bounds)
+            imageView?.contentMode = .scaleAspectFit
+            imageView?.tag = 101
+            cell.contentView.addSubview(imageView!)
         }
         
+        if let url = URL(string: gif.images.original.url) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        imageView?.animatedImage = FLAnimatedImage(animatedGIFData: data)
+                    }
+                }
+            }.resume()
+        }
         return cell
     }
+
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
 extension gifVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.width - 20) / 3 // Three gifs per row
+        let width = (collectionView.bounds.width - 20) / 2 // Two gifs per row
         return CGSize(width: width, height: width)
     }
 }
