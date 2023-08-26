@@ -11,7 +11,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     @IBOutlet weak var collectionview: UICollectionView!
     var selectedVideoURL: URL?
-
+    
     
     let data: [(image: UIImage, title: String, description: String)] = [
         (UIImage(systemName: "video")!, "Video to GIF", "You can convert your videos to gif"),
@@ -108,35 +108,35 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         present(picker, animated: true, completion: nil)
     }
     // MARK: - UIImagePickerControllerDelegate Methods
-      func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-          picker.dismiss(animated: true, completion: nil)
-          
-          if let videoURL = info[.mediaURL] as? URL {
-              // Call a method to send the video URL to a different view controller
-              sendVideoToDifferentVC(videoURL)
-          }
-      }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        if let videoURL = info[.mediaURL] as? URL {
+            // Call a method to send the video URL to a different view controller
+            sendVideoToDifferentVC(videoURL)
+        }
+    }
     // MARK: - Send Video to Different VC
-     func sendVideoToDifferentVC(_ videoURL: URL) {
-         // Instantiate the different view controller
-         //let destinationVC = videoToGifEditVC()
-         
-         
-         
-         // Present the different view controller
-         //navigationController?.pushViewController(destinationVC, animated: true)
-         
-         
-         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
-             // Pass the video URL to the different view controller
-             destinationVC.videoURL = videoURL
-             let navigationController = UINavigationController(rootViewController: destinationVC)
-             navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-             self.present(navigationController, animated: true, completion: nil)
-         }
-     }
-
+    func sendVideoToDifferentVC(_ videoURL: URL) {
+        // Instantiate the different view controller
+        //let destinationVC = videoToGifEditVC()
+        
+        
+        
+        // Present the different view controller
+        //navigationController?.pushViewController(destinationVC, animated: true)
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
+            // Pass the video URL to the different view controller
+            destinationVC.videoURL = videoURL
+            let navigationController = UINavigationController(rootViewController: destinationVC)
+            navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
     func openPhotoLibrary() {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = 0 // Set to 0 for unlimited selection, or a specific number for a limit
@@ -146,18 +146,18 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
-/*
-    //i dont know but its not reaching that point
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPhotoToGifEditVC" {
-            if let destinationVC = segue.destination as? photoToGifEditVC {
-                
-                
-                destinationVC.selectedImages = selectedImages // Pass the selected images to the photoToGifEditVC
-            }
-        }
-    }
-    */
+    /*
+     //i dont know but its not reaching that point
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if segue.identifier == "showPhotoToGifEditVC" {
+     if let destinationVC = segue.destination as? photoToGifEditVC {
+     
+     
+     destinationVC.selectedImages = selectedImages // Pass the selected images to the photoToGifEditVC
+     }
+     }
+     }
+     */
 }
 
 extension createVC: PHPickerViewControllerDelegate {

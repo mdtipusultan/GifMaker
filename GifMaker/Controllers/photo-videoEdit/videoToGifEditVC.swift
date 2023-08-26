@@ -5,7 +5,7 @@ import Photos
 import Regift
 
 class videoToGifEditVC: UIViewController {
-
+    
     var videoURL: URL?
     
     @IBOutlet weak var gifView: FLAnimatedImageView! // Make sure to connect this IBOutlet in your storyboard
@@ -23,7 +23,7 @@ class videoToGifEditVC: UIViewController {
             }
         }
     }
-
+    
     func convertVideoToGIF(videoURL: URL, completion: @escaping (URL?) -> Void) {
         let regift = Regift(sourceFileURL: videoURL, frameCount: 10, delayTime: 0.2, loopCount: 0)
         if let gifURL = regift.createGif() {
@@ -41,7 +41,7 @@ class videoToGifEditVC: UIViewController {
             gifView.animatedImage = gif
         }
     }
-
+    
     func saveGifToPhotoLibrary(gifURL: URL) {
         PHPhotoLibrary.shared().performChanges({
             let request = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: gifURL)
@@ -73,5 +73,4 @@ class videoToGifEditVC: UIViewController {
             }
         }
     }
-
 }

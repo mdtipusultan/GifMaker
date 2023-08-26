@@ -167,4 +167,3 @@ struct GiphyRandomGifResponse: Codable {
 struct GiphySearchGifResponse: Codable {
     let data: [Gif]
 }
-

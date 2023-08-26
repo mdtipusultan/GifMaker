@@ -193,16 +193,16 @@ class SettingsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 print("showVisitOurSiteVC")
             case 4:
                 if let url = URL(string: "https://www.example.com/terms") {
-                           UIApplication.shared.open(url)
-                       }
+                    UIApplication.shared.open(url)
+                }
             case 5:
                 if let url = URL(string: "https://www.example.com/privacy") {
-                           UIApplication.shared.open(url)
-                       }
+                    UIApplication.shared.open(url)
+                }
             case 6:
                 if let url = URL(string: "https://www.example.com/info") {
-                       UIApplication.shared.open(url)
-                   }
+                    UIApplication.shared.open(url)
+                }
             default:
                 break
             }
