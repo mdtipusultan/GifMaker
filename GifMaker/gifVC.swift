@@ -12,15 +12,19 @@ class gifVC: UIViewController {
         super.viewDidLoad()
         
         gifSearchBar.delegate = self
+        setupCollectionView()
+        //fetchRandomGIFs()
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        setupCollectionView()
+        
         
         // Load multiple random GIFs initially
-        fetchRandomGIFs()
+        // Load 20-25 random GIFs initially
+           fetchRandomGIFs(count: 25)
+       // gifCollectionView.reloadData()
     }
-
+    
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 4
@@ -44,23 +48,39 @@ class gifVC: UIViewController {
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
-    private func fetchRandomGIFs() {
+    private func fetchRandomGIFs(count: Int) {
         let apiKey = "HDwy5Yc1FMnzX83F2zJdyYRQm8oI7y3k"
-        let url = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(apiKey)")!
+        let baseURL = URL(string: "https://api.giphy.com/v1/gifs/random?api_key=\(apiKey)")!
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let data = data, let gif = self?.parseGifData(data) {
-                DispatchQueue.main.async {
-                    self?.gifs = [gif]
-                    self?.gifCollectionView.reloadData()
+        var urlRequests: [URLRequest] = []
+        for _ in 0..<count {
+            let urlRequest = URLRequest(url: baseURL)
+            urlRequests.append(urlRequest)
+        }
+        
+        let group = DispatchGroup()
+        var fetchedGIFs: [Gif] = []
+        
+        for request in urlRequests {
+            group.enter()
+            URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+                defer { group.leave() }
+                if let data = data, let gif = self?.parseGifData(data) {
+                    fetchedGIFs.append(gif)
+                } else {
+                    print("Error fetching random GIFs: \(error?.localizedDescription ?? "Unknown error")")
                 }
-            } else {
-                print("Error fetching random GIFs: \(error?.localizedDescription ?? "Unknown error")")
-            }
-        }.resume()
+            }.resume()
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.gifs = fetchedGIFs
+            self?.gifCollectionView.reloadData()
+        }
     }
 
 
+    
     
     private func searchGIFs(query: String) {
         let apiKey = "HDwy5Yc1FMnzX83F2zJdyYRQm8oI7y3k"
@@ -135,7 +155,7 @@ extension gifVC: UICollectionViewDataSource {
         }
         return cell
     }
-
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
