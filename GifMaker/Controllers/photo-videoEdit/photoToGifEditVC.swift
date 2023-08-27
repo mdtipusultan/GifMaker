@@ -4,9 +4,11 @@ import MobileCoreServices
 import Photos
 import AVKit
 import AVFoundation
+import FLAnimatedImage
 
 class photoToGifEditVC: UIViewController {
     var selectedImages: [UIImage] = []
+   
     
     @IBOutlet weak var gifView: UIImageView!
     
@@ -18,14 +20,13 @@ class photoToGifEditVC: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         // Use the 'selectedImages' array here to edit the photos or perform other operations
-        
         print("Selected images in photoToGifEditVC: \(selectedImages)")
-        
-        
+                
         // Convert the selected images to a GIF and set it as the image of gifView
         if let gifData = createGIF(from: selectedImages) {
             gifView.loadGif(from: gifData)
         }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +79,6 @@ class photoToGifEditVC: UIViewController {
         
         return imageData as Data
     }
-    
     
     @IBAction func cancleButton(_ sender: UIBarButtonItem) {
         dismiss(animated: true)

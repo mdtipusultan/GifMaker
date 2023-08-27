@@ -161,8 +161,8 @@ extension gifVC: UICollectionViewDataSource {
         let selectedGif = gifs[indexPath.item]
                 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
-            //editViewController.selectedGif = selectedGif
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
+            destinationVC.selectedGif = selectedGif
             let navigationController = UINavigationController(rootViewController: destinationVC)
             navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
             self.present(navigationController, animated: true, completion: nil)
