@@ -13,18 +13,19 @@ class gifVC: UIViewController {
         
         gifSearchBar.delegate = self
         setupCollectionView()
-        //fetchRandomGIFs()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-        
         // Load multiple random GIFs initially
         // Load 20-25 random GIFs initially
            fetchRandomGIFs(count: 25)
-       // gifCollectionView.reloadData()
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Reset the navigation bar color to the original color
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
+        
+    }
     private func setupCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 4
@@ -155,6 +156,19 @@ extension gifVC: UICollectionViewDataSource {
         }
         return cell
     }
+    // Inside the extension gifVC: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedGif = gifs[indexPath.item]
+                
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
+            //editViewController.selectedGif = selectedGif
+            let navigationController = UINavigationController(rootViewController: destinationVC)
+            navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+
     
 }
 

@@ -12,7 +12,8 @@ class videoToGifEditVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         if let videoURL = videoURL {
             convertVideoToGIF(videoURL: videoURL) { gifURL in
                 if let gifURL = gifURL {
@@ -23,7 +24,13 @@ class videoToGifEditVC: UIViewController {
             }
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Set the navigation bar color to your desired color
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear // Change this to your desired color
+        
+    }
     func convertVideoToGIF(videoURL: URL, completion: @escaping (URL?) -> Void) {
         let regift = Regift(sourceFileURL: videoURL, frameCount: 10, delayTime: 0.2, loopCount: 0)
         if let gifURL = regift.createGif() {

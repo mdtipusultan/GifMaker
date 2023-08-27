@@ -32,9 +32,11 @@ class SavedVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSou
         collectionview.delegate = self
         collectionview.dataSource = self
         
-        
     }
+
     override func viewWillAppear(_ animated: Bool) {
+        // Reset the navigation bar color to the original color
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
         collectionview.reloadData()
         // Add the message label as a subview to the collection view's background view
         collectionview.backgroundView = messageLabel

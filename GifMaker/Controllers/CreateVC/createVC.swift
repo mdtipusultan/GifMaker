@@ -37,6 +37,12 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionview.collectionViewLayout = flowLayout
     }
+    override func viewWillAppear(_ animated: Bool) {
+        // Reset the navigation bar color to the original color
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
+    }
+    
+     
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
