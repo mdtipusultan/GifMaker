@@ -14,7 +14,6 @@
 		E83A825F2A766365007D4E92 /* SavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83A825E2A766365007D4E92 /* SavedVC.swift */; };
 		E83A82612A768BC6007D4E92 /* SavedGifsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83A82602A768BC6007D4E92 /* SavedGifsCollectionViewCell.swift */; };
 		E83A82652A76A8E1007D4E92 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83A82642A76A8E1007D4E92 /* Helper.swift */; };
-		E84D8EBF2A686BE2000F9AB2 /* photoToGifEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D8EBE2A686BE2000F9AB2 /* photoToGifEditVC.swift */; };
 		E897DCFF2A9651EA000E0FA5 /* videoToGifEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E897DCFE2A9651EA000E0FA5 /* videoToGifEditVC.swift */; };
 		E8AD8B492A65777900C7BC31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AD8B482A65777900C7BC31 /* AppDelegate.swift */; };
 		E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */; };
@@ -40,7 +39,6 @@
 		E83A825E2A766365007D4E92 /* SavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVC.swift; sourceTree = "<group>"; };
 		E83A82602A768BC6007D4E92 /* SavedGifsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedGifsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E83A82642A76A8E1007D4E92 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		E84D8EBE2A686BE2000F9AB2 /* photoToGifEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoToGifEditVC.swift; sourceTree = "<group>"; };
 		E897DCFE2A9651EA000E0FA5 /* videoToGifEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videoToGifEditVC.swift; sourceTree = "<group>"; };
 		E8AD8B452A65777900C7BC31 /* GifMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AD8B482A65777900C7BC31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		E82ED5192A6FF2C100AFECE6 /* photo-videoEdit */ = {
 			isa = PBXGroup;
 			children = (
-				E84D8EBE2A686BE2000F9AB2 /* photoToGifEditVC.swift */,
 				E897DCFE2A9651EA000E0FA5 /* videoToGifEditVC.swift */,
 			);
 			path = "photo-videoEdit";
@@ -321,7 +318,6 @@
 				E8AD8B492A65777900C7BC31 /* AppDelegate.swift in Sources */,
 				E82ED51B2A7045B000AFECE6 /* settingsTableViewCell.swift in Sources */,
 				E82170E72A666E17009A95E7 /* createVC.swift in Sources */,
-				E84D8EBF2A686BE2000F9AB2 /* photoToGifEditVC.swift in Sources */,
 				E8DE64282A78FABC0032A742 /* gifVC.swift in Sources */,
 				E8AD8B4B2A65777900C7BC31 /* SceneDelegate.swift in Sources */,
 				E8AD8B532A65777900C7BC31 /* GifMaker.xcdatamodeld in Sources */,
