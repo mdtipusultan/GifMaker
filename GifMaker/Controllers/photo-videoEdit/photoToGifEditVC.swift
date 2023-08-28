@@ -8,8 +8,7 @@ import FLAnimatedImage
 
 class photoToGifEditVC: UIViewController {
     var selectedImages: [UIImage] = []
-   
-    
+       
     @IBOutlet weak var gifView: UIImageView!
     
     override func viewDidLoad() {
@@ -26,7 +25,6 @@ class photoToGifEditVC: UIViewController {
         if let gifData = createGIF(from: selectedImages) {
             gifView.loadGif(from: gifData)
         }
-        
     }
 
     override func viewWillAppear(_ animated: Bool) {

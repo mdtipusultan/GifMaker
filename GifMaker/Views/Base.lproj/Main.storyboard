@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tp5-Ma-N7s">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="createVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="View1">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dpd-qr-4OI">
-                                <rect key="frame" x="10" y="111" width="408" height="732"/>
+                                <rect key="frame" x="10" y="123" width="373" height="646"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4WR-ZJ-VzA">
                                     <size key="itemSize" width="182" height="246"/>
@@ -131,20 +131,20 @@
             <objects>
                 <viewController storyboardIdentifier="photoToGifEditVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oo6-cQ-9QM" customClass="photoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEX-q7-xCA">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xu1-fU-25l">
-                                <rect key="frame" x="0.0" y="241" width="428" height="400"/>
+                                <rect key="frame" x="0.0" y="192" width="393" height="400"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lBq-Za-fcB"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lBq-Za-fcB" firstAttribute="trailing" secondItem="xu1-fU-25l" secondAttribute="trailing" id="JEt-bj-iE9"/>
-                            <constraint firstItem="xu1-fU-25l" firstAttribute="top" secondItem="lBq-Za-fcB" secondAttribute="top" constant="150" id="TZH-EY-cxI"/>
+                            <constraint firstItem="xu1-fU-25l" firstAttribute="top" secondItem="lBq-Za-fcB" secondAttribute="bottom" multiplier="200/852" id="TZH-EY-cxI"/>
                             <constraint firstItem="xu1-fU-25l" firstAttribute="leading" secondItem="lBq-Za-fcB" secondAttribute="leading" id="V3P-07-aVm"/>
-                            <constraint firstItem="xu1-fU-25l" firstAttribute="height" secondItem="aEX-q7-xCA" secondAttribute="height" multiplier="400/926" id="zEc-on-TXr"/>
+                            <constraint firstItem="xu1-fU-25l" firstAttribute="height" secondItem="aEX-q7-xCA" secondAttribute="height" multiplier="400/852" id="zEc-on-TXr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit GIF" id="dj7-lU-fM5">
@@ -174,7 +174,7 @@
             <objects>
                 <viewController id="j6C-Hq-8bj" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kdh-pu-3jC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="cc2-6x-Zov"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -190,11 +190,11 @@
             <objects>
                 <viewController id="a3R-gT-5kz" customClass="gifVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WCr-Cw-3MZ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="nX2-Hj-X77">
-                                <rect key="frame" x="0.0" y="111" width="428" height="56"/>
+                                <rect key="frame" x="0.0" y="123" width="393" height="56"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -236,11 +236,11 @@
             <objects>
                 <viewController id="YNd-ac-imK" customClass="SavedVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V0K-wV-fcz">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f1b-vq-Kth">
-                                <rect key="frame" x="20" y="111" width="388" height="732"/>
+                                <rect key="frame" x="20" y="123" width="353" height="646"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vdz-OE-I53">
                                     <size key="itemSize" width="128" height="128"/>
@@ -306,11 +306,11 @@
             <objects>
                 <viewController id="n1t-DJ-Czh" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zg7-EE-y2o">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Will Be Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6Y-Dm-Uc2">
-                                <rect key="frame" x="40.333333333333343" y="446.33333333333331" width="347.66666666666663" height="33.666666666666686"/>
+                                <rect key="frame" x="22.666666666666657" y="409.33333333333331" width="347.66666666666674" height="33.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -366,7 +366,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2P-uk-p5W">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -387,22 +387,22 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="na1-HT-Wls" customClass="SettingsVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xAl-kU-8rD">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Z1W-AK-GEE">
-                                <rect key="frame" x="20" y="91" width="388" height="801"/>
+                                <rect key="frame" x="20" y="103" width="353" height="715"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="60" id="fWo-pq-5V2" customClass="settingsTableViewCell" customModule="GifMaker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="388" height="60"/>
+                                        <rect key="frame" x="0.0" y="50" width="353" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWo-pq-5V2" id="jB2-du-wDD">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1C-eU-SQb">
-                                                    <rect key="frame" x="353" y="16.333333333333329" width="15" height="27.666666666666671"/>
+                                                    <rect key="frame" x="318" y="16.333333333333329" width="15" height="27.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -446,7 +446,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="28F-Fx-M9I"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uwe-JJ-mNv">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -468,7 +468,7 @@
                     <tabBarItem key="tabBarItem" title="Saved" image="square.and.arrow.down" catalog="system" id="mzb-Ts-p2o"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pGn-NG-7bA">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -491,7 +491,7 @@
                     <tabBarItem key="tabBarItem" title="GIF" image="figure.walk.circle" catalog="system" id="a0l-2D-O2U"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="luP-l7-1iQ">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
@@ -512,11 +512,11 @@
             <objects>
                 <viewController storyboardIdentifier="videoToGifEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="A0Z-oY-w0x" customClass="videoToGifEditVC" customModule="GifMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Twp-V9-tT3">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-fs-sLZ" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="0.0" y="301.33333333333337" width="428" height="380.33333333333337"/>
+                                <rect key="frame" x="0.0" y="285.66666666666669" width="393" height="350.00000000000006"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JYr-FD-6rG"/>
@@ -556,7 +556,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tvf-hI-b6y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="roy-9a-YLL">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

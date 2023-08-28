@@ -168,8 +168,6 @@ extension gifVC: UICollectionViewDataSource {
             self.present(navigationController, animated: true, completion: nil)
         }
     }
-
-    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

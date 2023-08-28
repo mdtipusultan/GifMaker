@@ -103,17 +103,7 @@ class videoToGifEditVC: UIViewController {
         // Handle cancel action (e.g., dismiss the view controller)
         dismiss(animated: true, completion: nil)
     }
-    /*
-     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-     if let gifURL = videoURL {
-     convertVideoToGIF(videoURL: gifURL) { convertedGifURL in
-     if let gifURL = convertedGifURL {
-     self.saveGifToPhotoLibrary(gifURL: gifURL)
-     }
-     }
-     }
-     }
-     */
+
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let gif = selectedGif {
             // Save the selected GIF to the photo library
