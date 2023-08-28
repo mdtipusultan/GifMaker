@@ -23,7 +23,7 @@ class photoToGifEditVC: UIViewController {
                 
         // Convert the selected images to a GIF and set it as the image of gifView
         if let gifData = createGIF(from: selectedImages) {
-            gifView.loadGif(from: gifData)
+            //gifView.loadGif(from: gifData)
         }
     }
 
@@ -117,6 +117,7 @@ class photoToGifEditVC: UIViewController {
         }
     }
 }
+/*
 extension UIImageView {
     func loadGif(from data: Data) {
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
@@ -138,3 +139,4 @@ extension UIImageView {
         self.startAnimating()
     }
 }
+*/

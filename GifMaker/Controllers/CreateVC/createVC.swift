@@ -41,7 +41,6 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         // Reset the navigation bar color to the original color
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
     }
-    
      
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
@@ -152,18 +151,6 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
-    /*
-     //i dont know but its not reaching that point
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if segue.identifier == "showPhotoToGifEditVC" {
-     if let destinationVC = segue.destination as? photoToGifEditVC {
-     
-     
-     destinationVC.selectedImages = selectedImages // Pass the selected images to the photoToGifEditVC
-     }
-     }
-     }
-     */
 }
 
 extension createVC: PHPickerViewControllerDelegate {
@@ -207,9 +194,20 @@ extension createVC: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
         print("User canceled the selection.")
     }
+    /*
     func showPhotoToGifEditVC(with images: [UIImage]) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
+            destinationVC.selectedImages = images
+            let navigationController = UINavigationController(rootViewController: destinationVC)
+            navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    */
+    func showPhotoToGifEditVC(with images: [UIImage]) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
             destinationVC.selectedImages = images
             let navigationController = UINavigationController(rootViewController: destinationVC)
             navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
