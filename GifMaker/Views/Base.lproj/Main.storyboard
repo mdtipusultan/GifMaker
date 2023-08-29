@@ -34,11 +34,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="177" height="249"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq2-CA-2ll">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="249"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFV-dP-qmM" userLabel="cellView">
                                                     <rect key="frame" x="0.0" y="0.0" width="177" height="249"/>
                                                     <subviews>
@@ -73,19 +68,14 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xq2-CA-2ll" firstAttribute="leading" secondItem="hk7-nD-T3R" secondAttribute="leading" id="24D-5e-lSv"/>
                                                 <constraint firstAttribute="bottom" secondItem="FFV-dP-qmM" secondAttribute="bottom" id="2hm-S0-Xdi"/>
-                                                <constraint firstItem="xq2-CA-2ll" firstAttribute="top" secondItem="hk7-nD-T3R" secondAttribute="top" id="LZs-Xf-6Ce"/>
                                                 <constraint firstAttribute="trailing" secondItem="FFV-dP-qmM" secondAttribute="trailing" id="Rj1-FC-rQJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="xq2-CA-2ll" secondAttribute="trailing" id="lFD-in-qE4"/>
                                                 <constraint firstItem="FFV-dP-qmM" firstAttribute="leading" secondItem="hk7-nD-T3R" secondAttribute="leading" id="pfc-Yt-Wk5"/>
-                                                <constraint firstAttribute="bottom" secondItem="xq2-CA-2ll" secondAttribute="bottom" id="qJN-MG-IUm"/>
                                                 <constraint firstItem="FFV-dP-qmM" firstAttribute="top" secondItem="hk7-nD-T3R" secondAttribute="top" id="rmm-Tr-QKg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="177" height="249"/>
                                         <connections>
-                                            <outlet property="fullCellButton" destination="xq2-CA-2ll" id="ypO-ob-XoG"/>
                                             <outlet property="logoDetails" destination="Diw-ys-V2x" id="4Vp-V3-Qle"/>
                                             <outlet property="logoImage" destination="8sp-Li-ml7" id="xDk-Tt-Wpv"/>
                                             <outlet property="logoName" destination="AZO-f8-TQE" id="Qvw-QX-BDW"/>

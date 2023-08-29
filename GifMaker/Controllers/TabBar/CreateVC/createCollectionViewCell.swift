@@ -8,7 +8,7 @@
 import UIKit
 
 class createCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var fullCellButton: UIButton!
+    //@IBOutlet weak var fullCellButton: UIButton!
     
     @IBOutlet weak var logoImage: UIImageView!
     
