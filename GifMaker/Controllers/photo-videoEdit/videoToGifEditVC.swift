@@ -6,16 +6,21 @@ import Regift
 import ImageIO
 import MobileCoreServices
 
-class videoToGifEditVC: UIViewController {
+class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var videoURL: URL?
     var selectedGif: Gif?
     var selectedImages: [UIImage] = []
     
-    @IBOutlet weak var gifView: FLAnimatedImageView! // Make sure to connect this IBOutlet in your storyboard
+    @IBOutlet weak var gifView: FLAnimatedImageView!
+    
+    @IBOutlet weak var collectionview: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionview.dataSource = self
+        collectionview.delegate = self
+        
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         if let videoURL = videoURL {
@@ -29,21 +34,24 @@ class videoToGifEditVC: UIViewController {
         }
         
         selectedGifShowing()
-       
+        
         // Convert the selected images to a GIF and set it as the image of gifView
         if let gifData = createGIF(from: selectedImages) {
             let animatedGif = FLAnimatedImage(animatedGIFData: gifData)
             gifView.animatedImage = animatedGif
         }
-
-
+        
+        if let layout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.minimumInteritemSpacing = 10
+            layout.minimumLineSpacing = 10
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Set the navigation bar color to your desired color
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear // Change this to your desired color
-        
     }
     func selectedGifShowing(){
         if let gif = selectedGif,
@@ -57,16 +65,16 @@ class videoToGifEditVC: UIViewController {
             }.resume()
         }
     }
-        //MARK: IMAGES TO GIF
+    //MARK: IMAGES TO GIF
     func createGIF(from images: [UIImage]) -> Data? {
         // Create an empty data object for the GIF
         let imageData = NSMutableData()
-
+        
         // Create the GIF destination
         guard let destination = CGImageDestinationCreateWithData(imageData, kUTTypeGIF, images.count, nil) else {
             return nil
         }
-
+        
         // Set the GIF properties
         let gifProperties = [
             kCGImagePropertyGIFDictionary: [
@@ -74,7 +82,7 @@ class videoToGifEditVC: UIViewController {
             ]
         ] as CFDictionary
         CGImageDestinationSetProperties(destination, gifProperties)
-
+        
         // Add each frame to the GIF
         for image in images {
             if let cgImage = image.cgImage {
@@ -83,20 +91,20 @@ class videoToGifEditVC: UIViewController {
                         kCGImagePropertyGIFDelayTime: 0.2 // Set the delay time for each frame (adjust as needed)
                     ]
                 ] as CFDictionary
-
+                
                 CGImageDestinationAddImage(destination, cgImage, frameProperties)
             }
         }
-
+        
         // Finalize the destination
         if !CGImageDestinationFinalize(destination) {
             print("Failed to finalize GIF destination")
             return nil
         }
-
+        
         return imageData as Data
     }
-
+    
     func convertVideoToGIF(videoURL: URL, completion: @escaping (URL?) -> Void) {
         let regift = Regift(sourceFileURL: videoURL, frameCount: 10, delayTime: 0.2, loopCount: 0)
         if let gifURL = regift.createGif() {
@@ -165,7 +173,7 @@ class videoToGifEditVC: UIViewController {
             var savedGifs = userDefaults.array(forKey: "savedGifs") as? [Data] ?? []
             savedGifs.append(gifData)
             userDefaults.set(savedGifs, forKey: "savedGifs")
-
+            
             // Save the GIF from the temporary location to the photo library
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: temporaryGifURL)
@@ -188,7 +196,7 @@ class videoToGifEditVC: UIViewController {
         // Handle cancel action (e.g., dismiss the view controller)
         dismiss(animated: true, completion: nil)
     }
-//MARK: SAVE-BUTTON TAPPED
+    //MARK: SAVE-BUTTON TAPPED
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let gif = selectedGif {
             // Save the selected GIF to the photo library
@@ -203,7 +211,7 @@ class videoToGifEditVC: UIViewController {
                 }
             }
         } else if !selectedImages.isEmpty {
-           
+            
             // Convert selected images to GIF and save it to the photo library
             if let gifData = createGIF(from: selectedImages) {
                 saveGifToPhotoLibraryFromData(gifData: gifData)
@@ -211,26 +219,51 @@ class videoToGifEditVC: UIViewController {
             }
         }
     }
+    
+    //MARK: COLLECTION-VIEW
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! gifEditCollectionViewCell
+        
+        cell.imageTittle.text = "CROP"
+        
+        cell.imageicon.image = UIImage(systemName: "crop")
+        return cell
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = UIScreen.main.bounds.width
+        let cellWidth = (screenWidth - 20) / 5 // Assuming you want five cells per row and a 10-point spacing between cells
+        let cellHeight = cellWidth // You can adjust this as needed
+        
+        print("Cell width: \(cellWidth), Cell height: \(cellHeight)")
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
 }
 extension UIImageView {
     func loadGif(from data: Data) {
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
             return
         }
-
+        
         var images: [UIImage] = []
         let count = CGImageSourceGetCount(source)
-
+        
         for i in 0..<count {
             if let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) {
                 let image = UIImage(cgImage: cgImage)
                 images.append(image)
             }
         }
-
+        
         // Print the count of loaded images
         print("Loaded images count: \(images.count)")
-
+        
         self.animationImages = images
         self.animationDuration = TimeInterval(count) * 0.2
         self.startAnimating()
