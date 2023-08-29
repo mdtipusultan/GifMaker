@@ -88,12 +88,10 @@
 		E82ED5162A6FF25400AFECE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8C0E2E02A9DB8A300698518 /* TabBar */,
 				E8DE642D2A7A69DC0032A742 /* PURCHASE */,
-				E83A82622A768BD0007D4E92 /* SavedGifs */,
-				E8C4ABAA2A7278A2004AE929 /* customTab */,
 				E82ED5192A6FF2C100AFECE6 /* photo-videoEdit */,
 				E82ED5182A6FF2A300AFECE6 /* settings */,
-				E82ED5172A6FF27800AFECE6 /* CreateVC */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				E83A82642A76A8E1007D4E92 /* Helper.swift */,
-				E8DE64272A78FABC0032A742 /* gifVC.swift */,
 				E82ED5162A6FF25400AFECE6 /* Controllers */,
 				E8BAEBC32A83EB6000A79B53 /* Views */,
 				E8AD8B482A65777900C7BC31 /* AppDelegate.swift */,
@@ -175,6 +172,25 @@
 				E8DE64292A7A692E0032A742 /* Purchase.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E8C0E2DF2A9DB88500698518 /* GifVC */ = {
+			isa = PBXGroup;
+			children = (
+				E8DE64272A78FABC0032A742 /* gifVC.swift */,
+			);
+			path = GifVC;
+			sourceTree = "<group>";
+		};
+		E8C0E2E02A9DB8A300698518 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E8C4ABAA2A7278A2004AE929 /* customTab */,
+				E8C0E2DF2A9DB88500698518 /* GifVC */,
+				E83A82622A768BD0007D4E92 /* SavedGifs */,
+				E82ED5172A6FF27800AFECE6 /* CreateVC */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		E8C4ABAA2A7278A2004AE929 /* customTab */ = {
