@@ -451,7 +451,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lsg-fs-sLZ" customClass="FLAnimatedImageView">
-                                <rect key="frame" x="0.0" y="285.66666666666669" width="393" height="350.00000000000006"/>
+                                <rect key="frame" x="0.0" y="280" width="393" height="361"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JYr-FD-6rG"/>
@@ -459,7 +459,7 @@
                         <constraints>
                             <constraint firstItem="lsg-fs-sLZ" firstAttribute="centerY" secondItem="JYr-FD-6rG" secondAttribute="centerY" id="60a-n0-R2i"/>
                             <constraint firstItem="lsg-fs-sLZ" firstAttribute="centerX" secondItem="JYr-FD-6rG" secondAttribute="centerX" id="FkN-xX-wGa"/>
-                            <constraint firstItem="lsg-fs-sLZ" firstAttribute="height" secondItem="Twp-V9-tT3" secondAttribute="height" multiplier="350/852" id="dz2-xu-zoi"/>
+                            <constraint firstItem="lsg-fs-sLZ" firstAttribute="top" secondItem="Twp-V9-tT3" secondAttribute="bottom" multiplier="280/852" id="NHG-CT-5xa"/>
                             <constraint firstItem="lsg-fs-sLZ" firstAttribute="width" secondItem="Twp-V9-tT3" secondAttribute="width" id="oIY-Te-K5T"/>
                         </constraints>
                     </view>

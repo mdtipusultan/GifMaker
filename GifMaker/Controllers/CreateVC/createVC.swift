@@ -2,6 +2,8 @@ import UIKit
 import PhotosUI
 import MobileCoreServices
 
+
+
 // Define the protocol
 protocol CreateVCDelegate: AnyObject {
     func didSelectImages(_ images: [UIImage])
@@ -75,22 +77,26 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             
         case 2:
             // "GIF Editor" selected
-            print("GIF Editor selected")
+            self.showToast(message: "GIF Editor is Not Implemenetd", font: .systemFont(ofSize: 12.0))
         case 3:
             // "GIF Moments" selected
-            print("GIF Moments selected")
+            self.showToast(message: "GIF Moments is Not Implemenetd", font: .systemFont(ofSize: 12.0))
         case 4:
             // "Compress GIF" selected
-            print("Compress GIF selected")
+            self.showToast(message: "Compress GIF is Not Implemenetd", font: .systemFont(ofSize: 12.0))
         case 5:
             // "Loop GIF" selected
-            print("Loop GIF selected")
+            self.showToast(message: "Loop GIF is Not Implemenetd", font: .systemFont(ofSize: 12.0))
             
         default:
             break
         }
     }
-    
+
+
+
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 30) / 2
         let screenHeight = UIScreen.main.bounds.height
@@ -123,15 +129,6 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     // MARK: - Send Video to Different VC
     func sendVideoToDifferentVC(_ videoURL: URL) {
-        // Instantiate the different view controller
-        //let destinationVC = videoToGifEditVC()
-        
-        
-        
-        // Present the different view controller
-        //navigationController?.pushViewController(destinationVC, animated: true)
-        
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
             // Pass the video URL to the different view controller
@@ -151,6 +148,8 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         picker.delegate = self
         present(picker, animated: true, completion: nil)
     }
+    
+   
 }
 
 extension createVC: PHPickerViewControllerDelegate {
@@ -194,17 +193,6 @@ extension createVC: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
         print("User canceled the selection.")
     }
-    /*
-    func showPhotoToGifEditVC(with images: [UIImage]) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let destinationVC = storyboard.instantiateViewController(withIdentifier: "photoToGifEditVC") as? photoToGifEditVC {
-            destinationVC.selectedImages = images
-            let navigationController = UINavigationController(rootViewController: destinationVC)
-            navigationController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-            self.present(navigationController, animated: true, completion: nil)
-        }
-    }
-    */
     func showPhotoToGifEditVC(with images: [UIImage]) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let destinationVC = storyboard.instantiateViewController(withIdentifier: "videoToGifEditVC") as? videoToGifEditVC {
@@ -215,3 +203,23 @@ extension createVC: PHPickerViewControllerDelegate {
         }
     }
 }
+extension UIViewController {
+
+func showToast(message : String, font: UIFont) {
+
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-200, width: 200, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+} }
