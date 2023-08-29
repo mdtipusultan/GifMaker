@@ -97,38 +97,6 @@ class videoToGifEditVC: UIViewController {
         return imageData as Data
     }
 
-
-
-    /*
-    // Convert an array of images to GIF and save to the photo library
-     func convertImagesToGIF(images: [UIImage], completion: @escaping (URL?) -> Void) {
-         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-             completion(nil)
-             return
-         }
-         
-         let gifURL = documentsDirectory.appendingPathComponent("temporaryGif.gif")
-         guard let destination = CGImageDestinationCreateWithURL(gifURL as CFURL, kUTTypeGIF, images.count, nil) else {
-             completion(nil)
-             return
-         }
-         
-         let frameProperties = [kCGImagePropertyGIFDictionary: [kCGImagePropertyGIFDelayTime: 0.2]]
-         let gifProperties = [kCGImagePropertyGIFDictionary: [kCGImagePropertyGIFLoopCount: 0]]
-         
-         for image in images {
-             if let cgImage = image.cgImage {
-                 CGImageDestinationAddImage(destination, cgImage, frameProperties as CFDictionary)
-             }
-         }
-         
-         CGImageDestinationSetProperties(destination, gifProperties as CFDictionary)
-         CGImageDestinationFinalize(destination)
-         
-         completion(gifURL)
-     }
-*/
-
     func convertVideoToGIF(videoURL: URL, completion: @escaping (URL?) -> Void) {
         let regift = Regift(sourceFileURL: videoURL, frameCount: 10, delayTime: 0.2, loopCount: 0)
         if let gifURL = regift.createGif() {
@@ -146,7 +114,7 @@ class videoToGifEditVC: UIViewController {
             gifView.animatedImage = gif
         }
     }
-    
+    //MARK: SAVE VIDEO GIF ANF GIF TO DEVICE
     func saveGifToPhotoLibrary(gifURL: URL) {
         URLSession.shared.dataTask(with: gifURL) { data, response, error in
             if let data = data {
@@ -157,7 +125,11 @@ class videoToGifEditVC: UIViewController {
                 do {
                     // Write the downloaded GIF data to the temporary location
                     try data.write(to: temporaryGifURL)
-                    
+                    // Save the GIF data to UserDefaults
+                    let userDefaults = UserDefaults.standard
+                    var savedGifs = userDefaults.array(forKey: "savedGifs") as? [Data] ?? []
+                    savedGifs.append(data)
+                    userDefaults.set(savedGifs, forKey: "savedGifs")
                     // Save the GIF from the temporary location to the photo library
                     PHPhotoLibrary.shared().performChanges({
                         PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: temporaryGifURL)
@@ -179,7 +151,7 @@ class videoToGifEditVC: UIViewController {
             }
         }.resume()
     }
-    
+    //MARK: SAVE IMAGES GIF TO DEVICE
     func saveGifToPhotoLibraryFromData(gifData: Data) {
         // Create a temporary file URL in the app's temporary directory
         let temporaryDirectory = FileManager.default.temporaryDirectory
@@ -188,7 +160,12 @@ class videoToGifEditVC: UIViewController {
         do {
             // Write the GIF data to the temporary location
             try gifData.write(to: temporaryGifURL)
-            
+            // Save the GIF data to UserDefaults
+            let userDefaults = UserDefaults.standard
+            var savedGifs = userDefaults.array(forKey: "savedGifs") as? [Data] ?? []
+            savedGifs.append(gifData)
+            userDefaults.set(savedGifs, forKey: "savedGifs")
+
             // Save the GIF from the temporary location to the photo library
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: temporaryGifURL)
@@ -206,15 +183,12 @@ class videoToGifEditVC: UIViewController {
             print("Error writing GIF data to temporary location: \(error)")
         }
     }
-
-    
-
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
         // Handle cancel action (e.g., dismiss the view controller)
         dismiss(animated: true, completion: nil)
     }
-
+//MARK: SAVE-BUTTON TAPPED
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let gif = selectedGif {
             // Save the selected GIF to the photo library
