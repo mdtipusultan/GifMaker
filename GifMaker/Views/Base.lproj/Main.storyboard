@@ -41,28 +41,28 @@
                                                             <rect key="frame" x="44.666666666666664" y="17" width="87.666666666666686" height="67.333333333333329"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZO-f8-TQE" userLabel="Label1">
-                                                            <rect key="frame" x="67.666666666666671" y="111.33333333333333" width="42" height="20.333333333333329"/>
+                                                            <rect key="frame" x="67.666666666666671" y="110" width="42" height="20.333333333333343"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" systemColor="systemOrangeColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lets see what happend when we set it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Diw-ys-V2x" userLabel="Label2">
-                                                            <rect key="frame" x="20" y="151.66666666666666" width="137" height="50.333333333333343"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="20" y="150" width="137" height="28.666666666666657"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstItem="8sp-Li-ml7" firstAttribute="top" secondItem="FFV-dP-qmM" secondAttribute="top" constant="17" id="HYe-Yn-kba"/>
+                                                        <constraint firstItem="8sp-Li-ml7" firstAttribute="top" secondItem="FFV-dP-qmM" secondAttribute="bottom" multiplier="17/249" id="HYe-Yn-kba"/>
                                                         <constraint firstItem="8sp-Li-ml7" firstAttribute="height" secondItem="FFV-dP-qmM" secondAttribute="height" multiplier="0.270142" id="PGH-Lc-qq2"/>
-                                                        <constraint firstItem="AZO-f8-TQE" firstAttribute="top" secondItem="8sp-Li-ml7" secondAttribute="bottom" constant="27" id="QHE-W3-HRv"/>
-                                                        <constraint firstItem="Diw-ys-V2x" firstAttribute="top" secondItem="AZO-f8-TQE" secondAttribute="bottom" constant="20" id="QMU-Zs-y5G"/>
                                                         <constraint firstAttribute="trailing" secondItem="Diw-ys-V2x" secondAttribute="trailing" constant="20" id="XOF-0x-cUW"/>
                                                         <constraint firstItem="Diw-ys-V2x" firstAttribute="leading" secondItem="FFV-dP-qmM" secondAttribute="leading" constant="20" id="YCg-de-Nsw"/>
+                                                        <constraint firstItem="Diw-ys-V2x" firstAttribute="top" secondItem="FFV-dP-qmM" secondAttribute="bottom" multiplier="150/249" id="fAK-9q-vWD"/>
                                                         <constraint firstItem="8sp-Li-ml7" firstAttribute="centerX" secondItem="FFV-dP-qmM" secondAttribute="centerX" id="jCO-RR-C0y"/>
                                                         <constraint firstItem="8sp-Li-ml7" firstAttribute="width" secondItem="FFV-dP-qmM" secondAttribute="width" multiplier="0.496183" id="pNu-c6-5ZP"/>
+                                                        <constraint firstItem="AZO-f8-TQE" firstAttribute="top" secondItem="FFV-dP-qmM" secondAttribute="bottom" multiplier="110/249" id="s50-4T-hLj"/>
                                                         <constraint firstItem="AZO-f8-TQE" firstAttribute="centerX" secondItem="FFV-dP-qmM" secondAttribute="centerX" id="vYU-YZ-yXN"/>
                                                     </constraints>
                                                 </view>
