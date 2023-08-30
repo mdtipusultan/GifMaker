@@ -2,8 +2,6 @@ import UIKit
 import PhotosUI
 import MobileCoreServices
 
-
-
 // Define the protocol
 protocol CreateVCDelegate: AnyObject {
     func didSelectImages(_ images: [UIImage])
@@ -43,7 +41,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         // Reset the navigation bar color to the original color
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.00) // Change this to your original color
     }
-     
+    
     @IBAction func purchaseBUttonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Purchase", bundle: nil)
         let destinationVC = storyboard.instantiateViewController(withIdentifier: "purchaseVC")
@@ -92,11 +90,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             break
         }
     }
-
-
-
-
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - 30) / 2
         let screenHeight = UIScreen.main.bounds.height
@@ -149,7 +143,7 @@ class createVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         present(picker, animated: true, completion: nil)
     }
     
-   
+    
 }
 
 extension createVC: PHPickerViewControllerDelegate {
@@ -204,22 +198,22 @@ extension createVC: PHPickerViewControllerDelegate {
     }
 }
 extension UIViewController {
-
-func showToast(message : String, font: UIFont) {
-
-    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-200, width: 200, height: 35))
-    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-    toastLabel.textColor = UIColor.white
-    toastLabel.font = font
-    toastLabel.textAlignment = .center;
-    toastLabel.text = message
-    toastLabel.alpha = 1.0
-    toastLabel.layer.cornerRadius = 10;
-    toastLabel.clipsToBounds  =  true
-    self.view.addSubview(toastLabel)
-    UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-         toastLabel.alpha = 0.0
-    }, completion: {(isCompleted) in
-        toastLabel.removeFromSuperview()
-    })
-} }
+    
+    func showToast(message : String, font: UIFont) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-200, width: 200, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } }

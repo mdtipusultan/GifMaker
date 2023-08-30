@@ -12,8 +12,20 @@ class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollecti
     var selectedGif: Gif?
     var selectedImages: [UIImage] = []
     
-    @IBOutlet weak var gifView: FLAnimatedImageView!
+    let data: [(image: UIImage, title: String)] = [
+        (UIImage(systemName: "speedometer")!, "SPEED"),
+        (UIImage(systemName: "crop")!, "CANVAS"),
+        (UIImage(systemName: "aqi.medium")!, "BG"),
+        (UIImage(systemName: "character.textbox")!, "BORDER"),
+        (UIImage(systemName: "slider.horizontal.3")!, "EDIT"),
+        (UIImage(systemName: "figure.gymnastics")!, "STICKER"),
+        (UIImage(systemName: "textformat")!, "TEXT"),
+        (UIImage(systemName: "cube.box")!, "MANAGE"),
+        (UIImage(systemName: "camera.filters")!, "FILTER"),
+        (UIImage(systemName: "slider.horizontal.2.gobackward")!, "ADJUST")
+    ]
     
+    @IBOutlet weak var gifView: FLAnimatedImageView!
     @IBOutlet weak var collectionview: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,8 +33,12 @@ class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollecti
         collectionview.dataSource = self
         collectionview.delegate = self
         
+        setUp()
+    }
+    func setUp(){
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         if let videoURL = videoURL {
             convertVideoToGIF(videoURL: videoURL) { gifURL in
                 if let gifURL = gifURL {
@@ -45,7 +61,6 @@ class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollecti
             layout.minimumInteritemSpacing = 10
             layout.minimumLineSpacing = 10
         }
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -222,18 +237,19 @@ class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollecti
     
     //MARK: COLLECTION-VIEW
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! gifEditCollectionViewCell
         
-        cell.imageTittle.text = "CROP"
+        let item = data[indexPath.row]
         
-        cell.imageicon.image = UIImage(systemName: "crop")
+        cell.imageTittle.text = item.title
+        
+        cell.imageicon.image = item.image
         return cell
     }
-
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
