@@ -102,14 +102,6 @@
 			path = Assests;
 			sourceTree = "<group>";
 		};
-		2B06D6E92BEE74C4009A592D /* plist */ = {
-			isa = PBXGroup;
-			children = (
-				E8AD8B592A65777B00C7BC31 /* Info.plist */,
-			);
-			path = plist;
-			sourceTree = "<group>";
-		};
 		2B6D79DFEAA4973446F0EE1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +193,7 @@
 				E8BAEBC32A83EB6000A79B53 /* Views */,
 				E82ED5162A6FF25400AFECE6 /* Controllers */,
 				2B06D6E82BEE74AA009A592D /* Assests */,
-				2B06D6E92BEE74C4009A592D /* plist */,
+				E8AD8B592A65777B00C7BC31 /* Info.plist */,
 				E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */,
 			);
 			path = GifMaker;
