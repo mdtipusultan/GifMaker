@@ -70,6 +70,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B06D6E52BEE744A009A592D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B06D6E62BEE7464009A592D /* common */ = {
+			isa = PBXGroup;
+			children = (
+				E83A82642A76A8E1007D4E92 /* Helper.swift */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		2B06D6E72BEE748C009A592D /* App initials */ = {
+			isa = PBXGroup;
+			children = (
+				E8AD8B482A65777900C7BC31 /* AppDelegate.swift */,
+				E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */,
+			);
+			path = "App initials";
+			sourceTree = "<group>";
+		};
+		2B06D6E82BEE74AA009A592D /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				E8AD8B542A65777B00C7BC31 /* Assets.xcassets */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		2B06D6E92BEE74C4009A592D /* plist */ = {
+			isa = PBXGroup;
+			children = (
+				E8AD8B592A65777B00C7BC31 /* Info.plist */,
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
 		2B6D79DFEAA4973446F0EE1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,14 +195,13 @@
 		E8AD8B472A65777900C7BC31 /* GifMaker */ = {
 			isa = PBXGroup;
 			children = (
-				E83A82642A76A8E1007D4E92 /* Helper.swift */,
-				E82ED5162A6FF25400AFECE6 /* Controllers */,
+				2B06D6E72BEE748C009A592D /* App initials */,
+				2B06D6E62BEE7464009A592D /* common */,
+				2B06D6E52BEE744A009A592D /* Model */,
 				E8BAEBC32A83EB6000A79B53 /* Views */,
-				E8AD8B482A65777900C7BC31 /* AppDelegate.swift */,
-				E8AD8B4A2A65777900C7BC31 /* SceneDelegate.swift */,
-				E8AD8B542A65777B00C7BC31 /* Assets.xcassets */,
-				E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */,
-				E8AD8B592A65777B00C7BC31 /* Info.plist */,
+				E82ED5162A6FF25400AFECE6 /* Controllers */,
+				2B06D6E82BEE74AA009A592D /* Assests */,
+				2B06D6E92BEE74C4009A592D /* plist */,
 				E8AD8B512A65777900C7BC31 /* GifMaker.xcdatamodeld */,
 			);
 			path = GifMaker;
@@ -171,6 +210,7 @@
 		E8BAEBC32A83EB6000A79B53 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8AD8B562A65777B00C7BC31 /* LaunchScreen.storyboard */,
 				E8AD8B4E2A65777900C7BC31 /* Main.storyboard */,
 				E8DE64292A7A692E0032A742 /* Purchase.storyboard */,
 			);
