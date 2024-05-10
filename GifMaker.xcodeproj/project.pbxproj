@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B06D6EB2BEE7DA5009A592D /* gifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B06D6EA2BEE7DA5009A592D /* gifModel.swift */; };
 		93A092D4ED6F358C3A845589 /* Pods_GifMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6B1C0BE1CE67CDD5D61A2B /* Pods_GifMaker.framework */; };
 		E82170E72A666E17009A95E7 /* createVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82170E62A666E17009A95E7 /* createVC.swift */; };
 		E82170E92A666FD4009A95E7 /* createCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		056199E67FC8DB49155C61CD /* Pods-GifMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifMaker.debug.xcconfig"; path = "Target Support Files/Pods-GifMaker/Pods-GifMaker.debug.xcconfig"; sourceTree = "<group>"; };
 		250B2EBFB42BDE668192CC91 /* Pods-GifMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GifMaker.release.xcconfig"; path = "Target Support Files/Pods-GifMaker/Pods-GifMaker.release.xcconfig"; sourceTree = "<group>"; };
+		2B06D6EA2BEE7DA5009A592D /* gifModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifModel.swift; sourceTree = "<group>"; };
 		9C6B1C0BE1CE67CDD5D61A2B /* Pods_GifMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GifMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82170E62A666E17009A95E7 /* createVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createVC.swift; sourceTree = "<group>"; };
 		E82170E82A666FD4009A95E7 /* createCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		2B06D6E52BEE744A009A592D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2B06D6EA2BEE7DA5009A592D /* gifModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,8 +125,8 @@
 		E82ED5162A6FF25400AFECE6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8C0E2E02A9DB8A300698518 /* TabBar */,
 				E8DE642D2A7A69DC0032A742 /* PURCHASE */,
+				E8C0E2E02A9DB8A300698518 /* TabBar */,
 				E82ED5192A6FF2C100AFECE6 /* photo-videoEdit */,
 				E82ED5182A6FF2A300AFECE6 /* settings */,
 			);
@@ -275,7 +278,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					E8AD8B442A65777900C7BC31 = {
 						CreatedOnToolsVersion = 14.3;
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E897DCFF2A9651EA000E0FA5 /* videoToGifEditVC.swift in Sources */,
+				2B06D6EB2BEE7DA5009A592D /* gifModel.swift in Sources */,
 				E83A825F2A766365007D4E92 /* SavedVC.swift in Sources */,
 				E82170E92A666FD4009A95E7 /* createCollectionViewCell.swift in Sources */,
 				E83A82612A768BC6007D4E92 /* SavedGifsCollectionViewCell.swift in Sources */,
@@ -438,6 +442,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -452,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -498,6 +503,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -506,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

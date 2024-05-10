@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (5.7.1)
+  - Alamofire (5.9.1)
   - FLAnimatedImage (1.0.17)
   - Regift (1.6.0)
-  - SwiftyGif (5.4.4)
+  - SwiftyGif (5.4.5)
 
 DEPENDENCIES:
   - Alamofire
@@ -18,11 +18,11 @@ SPEC REPOS:
     - SwiftyGif
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
   Regift: a7c1a7e377c60bfc34301d6f532e099e5ae109a8
-  SwiftyGif: 93a1cc87bf3a51916001cf8f3d63835fb64c819f
+  SwiftyGif: 706c60cf65fa2bc5ee0313beece843c8eb8194d4
 
 PODFILE CHECKSUM: 3de58d8c47cb1f8cd6b3e8ac207c8c76d4cb9a3e
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.3
