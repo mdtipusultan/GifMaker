@@ -251,6 +251,10 @@ class videoToGifEditVC: UIViewController, UICollectionViewDataSource, UICollecti
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showToast(message: "Feature will be available soon.", font: .systemFont(ofSize: 14.0))
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - 20) / 5 // Assuming you want five cells per row and a 10-point spacing between cells
